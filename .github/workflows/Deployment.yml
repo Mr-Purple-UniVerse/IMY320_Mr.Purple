@@ -6,14 +6,20 @@ on:
 
 jobs:
   deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: FTP Deploy
-        uses: samkirkland/ftp-deploy-action@v1
-        with:
-          host: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          source: .
-          destination: /htdocs
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        source: .
+        server-dir: ./htdocs/
+
+
+          
