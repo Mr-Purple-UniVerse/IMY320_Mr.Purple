@@ -1,4 +1,4 @@
-# UniVerse - Social Interaction Application for University of Pretoria Students
+# UniVerse 
 
 UniVerse is a powerful social interaction application designed specifically for students at the University of Pretoria. This platform aims to enhance communication and collaboration among students, fostering a vibrant and engaging academic and social atmosphere. By utilizing UniVerse, students can seamlessly connect with their peers, share ideas, access shared resources, and cultivate lasting friendships that extend beyond the confines of the classroom. Our primary objective with UniVerse is to cultivate an educational environment where students take center stage in their learning experience.
 
