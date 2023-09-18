@@ -9,7 +9,7 @@
 
     <title>Uni Verse</title>
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <!--     Fonts     -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -20,6 +20,10 @@
 </head>
 
 <body>
-    <h1>UniVerse</h1>
+    <div class="background"></div>
+    <div class="header">
+        <img src="assets/logo.png" alt="logo">
+        <h1>UniVerse</h1>
+    </div>
 </body>
 </html>
