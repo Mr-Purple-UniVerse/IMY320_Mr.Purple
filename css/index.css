@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@700&display=swap');
 
 * {
     padding: 0;
@@ -36,4 +36,42 @@ h1 {
     color: white;
     margin-left: 1em;
     font-size: 3em;
+}
+
+.login-wrapper {
+    background-color: green;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 4em;
+}
+
+h3 {
+    font-family: 'Poppins';
+    color: white;
+    font-size: 2em;
+}
+
+p {
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 1.2em;
+}
+
+span {
+    font-weight: 700;
+}
+
+.input-wrapper {
+    margin: 1em;
+    margin-left: 0em;
+}
+
+label {
+    color: rgba(255,255,255,0.6);
+
+}
+
+input {
+    width: 80%;
 }

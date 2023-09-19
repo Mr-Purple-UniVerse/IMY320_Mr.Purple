@@ -7,7 +7,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <title>Uni Verse</title>
+    <title>UniVerse</title>
 
     <link rel="stylesheet" href="css/index.css">
 
@@ -24,6 +24,25 @@
     <div class="header">
         <img src="assets/logo.png" alt="logo">
         <h1>UniVerse</h1>
+    </div>
+
+    <div class="login-wrapper">
+        <h3>Login</h3>
+        <p>Don't have an account? <span>Register</span></p>
+
+        <form action="#">
+            <div class="input-wrapper">
+                <label for="email">Email</label> <br>
+                <input type="text" id="email" name="email"> <br>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="password">Password</label> <br>
+                <input type="password" id="password" name="password"> <br>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
     </div>
 </body>
 </html>
