@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // User is authenticated
         // Redirect or perform other actions here
-        echo "Login successful!";
+        header('Location: ../../home.php'); // Redirect to index page
     } else {
         // Invalid email or password
         header('Location: ../../login.php?error=invalid');

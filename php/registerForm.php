@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         $conn->close();
-        header('Location: index.html'); // Redirect to index page
+        header('Location: ../../login.php'); // Redirect to index page
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
