@@ -13,7 +13,7 @@ body {
 .background {
     width: 100vw;
     height: 100vh;
-    background-image: url("../assets/background.png");
+    background-image: url("../assets/indexBackground.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -28,90 +28,81 @@ body {
     align-items: center;
     margin: 3em;
     width: 100%;
+    margin-left: 12%;
 }
 
 h1 {
     font-family: 'Poppins';
-    color: white;
+    color: #AD35B2;
     margin-left: 0.5em;
     font-size: 5em;
 }
 
-.login-wrapper {
-    width: 60%;
+.index-wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
     display: flex;
     flex-direction: column;
-    padding: 7em;
-    padding-top: 0em;
-    padding-top: 1em;
-}
-
-h3 {
-    font-family: 'Poppins';
-    color: white;
-    font-size: 3em;
-    margin-bottom: 0.2em;
+    align-items: center;
 }
 
 p {
-    font-family: 'Montserrat';
+    text-align: center;
     color: white;
-    font-size: 1.2em;
-    margin-bottom: 1em;
-}
-
-span {
-    font-weight: 700;
-    color: #ff00f7;
-    text-decoration: underline;
-}
-
-.input-wrapper {
-    margin: 1em;
-    margin-left: 0em;
+    font-family: 'Poppins';
+    max-width: 40%;
     margin-bottom: 2em;
-    position: relative;
 }
 
-label {
-    color: rgba(255,255,255,0.6);
-    font-family: 'Montserrat';
+.index-wrapper h1 {
+    color: white;
+    font-size: 3.5em;
 }
 
-input {
+.buttons {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons a {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    width: 18%;
+}
+
+.login-btn, .register-btn{
     padding: 1em;
-    font-size: 1.3em;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 0.5em;
-    outline: none;
-    border: none;
+    width: 100%;
+    /* margin-right: 0.5em; */
+    /* margin-left: 0.5em; */
     font-family: 'Poppins';
-    color: white;
-    padding-right: 4em;
-}
-
-.input-wrapper i {
-    color: white;
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    font-size: 1.3em;
-}
-
-button {
-    margin-top: 1em;
-    min-width: 35%;
-    padding: 1em;
-    border-radius: 0.6em;
-    font-size: 1.3em;
+    font-size: 1.1em;
+    border-radius: 0.7em;
     border: none;
-    background-color: white;
-    font-family: 'Poppins';
-    transition: all 200 ms;
-}
+    background-color: transparent;
+    transition: all 200ms;
+} 
 
-button:hover {
+.login-btn:hover {
+    background-color: rgb(228, 228, 228);
     cursor: pointer;
-    background-color: rgb(227, 227, 227);
 }
+
+.register-btn:hover {
+    background-color: rgb(228, 228, 228);
+    cursor: pointer;
+    color: black;
+}
+
+.login-btn {
+    background-color: white;
+    color: black;
+}
+
+.register-btn {
+    color: white;
+    border: 1px solid white;
+}
+

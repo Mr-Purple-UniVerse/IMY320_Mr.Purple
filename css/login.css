@@ -7,8 +7,7 @@
 }
 
 body {
-    /* overflow-x: hidden; */
-    background-color: rgba(124, 48, 161);
+    overflow: hidden;
 }
 
 .background {
@@ -22,7 +21,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    position: fixed;
 }
 
 .header {
@@ -30,7 +28,6 @@ body {
     align-items: center;
     margin: 3em;
     width: 100%;
-    margin-bottom: 2em;
 }
 
 h1 {
@@ -117,17 +114,4 @@ button {
 button:hover {
     cursor: pointer;
     background-color: rgb(227, 227, 227);
-}
-
-.full-input {
-    display: flex;
-    justify-content: center;
-}
-
-.half-input {
-    margin-right: 1em;
-}
-
-.half-input input {
-    padding: 1em !important;
 }

@@ -1,28 +1,3 @@
-<?php
-    $conn = new mysqli("sql106.infinityfree.com", "if0_34804654", "LgqF1mxkFWbsqu", "if0_34804654_universe");
-    
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-        echo '<script>alert("Database connection not!");</script>';
-    } else {
-        // Alert if connection is successful
-        echo '<script>alert("Database connection successful!");</script>';
-    }
-
-    $sql = "SELECT * FROM Users;";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo "ID: " . $row["id"]. " - Name: " . $row["name"]. " - Email: " . $row["email"]. "<br>";
-        }
-    } else {
-        echo "0 results";
-    }
-
-    $conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +7,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <title>UniVerse | Login</title>
+    <title>UniVerse</title>
 
     <link rel="stylesheet" href="css/index.css">
 
@@ -53,25 +28,15 @@
         <h1>UniVerse</h1>
     </div>
 
-    <div class="login-wrapper">
-        <h3>Login</h3>
-        <p>Don't have an account? <span>Register</span></p>
+    <div class="index-wrapper">
+        <h1>Welcome</h1>
+        <p>Connect with students and boost your academic success and I will add more text here eventually... I hope</p>
 
-        <form action="#">
-            <div class="input-wrapper">
-                <label for="email">Email</label> <br>
-                <i class="fa-regular fa-envelope"></i>
-                <input type="text" id="email" name="email"> <br>
-            </div>
-
-            <div class="input-wrapper">
-                <label for="password">Password</label> <br>
-                <i class="fa-regular fa-eye" id="password-icon"></i>
-                <input type="password" id="password" name="password"> <br>
-            </div>
-
-            <button type="submit">Login</button>
-        </form>
+        <div class="buttons">
+            <a href="login.php"><button class="login-btn">Login</button></a>
+            <a href="register.php"><button class="register-btn">Register</button></a>
+            <!-- <button class="register-btn">Register</button> -->
+        </div>
     </div>
 </body>
 </html>

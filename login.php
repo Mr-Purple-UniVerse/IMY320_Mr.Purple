@@ -1,3 +1,24 @@
+<?php
+    $conn = new mysqli("34.27.203.247", "admin", "iloveapples", "universe");
+    
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT * FROM Users;";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "ID: " . $row["id"]. " - Name: " . $row["name"]. " - Email: " . $row["email"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+
+    $conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +28,9 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <title>UniVerse | Register</title>
+    <title>UniVerse | Login</title>
 
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/login.css">
 
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
@@ -29,23 +50,10 @@
     </div>
 
     <div class="login-wrapper">
-        <h3>Create New Account</h3>
-        <p>Already a member? <a href="index.php">Login</a></p>
+        <h3>Login</h3>
+        <p>Don't have an account? <a href="register.php">Register</a></p>
 
-        <form action="/php/registerForm.php" method="post">
-
-            <div class="full-input">
-                <div class="half-input">
-                    <label for="name">First Name</label> <br>
-                    <input type="text" id="name" name="name"> <br>
-                </div>
-
-                <div class="half-input">
-                    <label for="surname">Last Name</label> <br>
-                    <input type="text" id="surname" name="surname"> <br>
-                </div>
-            </div>
-
+        <form action="/php//loginForm.php" method="post">
             <div class="input-wrapper">
                 <label for="email">Email</label> <br>
                 <i class="fa-regular fa-envelope"></i>
@@ -58,16 +66,17 @@
                 <input type="password" id="password" name="password"> <br>
             </div>
 
-            <div class="input-wrapper">
-                <label for="confirmPassword">Confirm Password</label> <br>
-                <i class="fa-regular fa-eye" id="password-icon-confirm"></i>
-                <input type="password" id="confirmPassword" name="confirmPassword"> <br>
-            </div>
-
             <button type="submit">Login</button>
+
+            <?php
+                if(isset($_GET['error']) && $_GET['error'] == 'invalid') {
+                    echo "<p style='color: red;'>Invalid email or password. Please try again.</p>";
+                }
+            ?>
+
         </form>
     </div>
 </body>
 </html>
 
-<script src="javascript/register.js"></script>
+<script src="javascript/login.js"></script>
