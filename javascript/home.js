@@ -1,94 +1,21 @@
-const mockData = [
-    {
-        cardId: 1,
-        profilePic: '',
-        name: 'John Doe',
-        moduleName: 'COS 332',
-        title: 'Question 1',
-        description: 'This is the first question description.',
-        upvotes: 0,
-        downvotes: 0,
-        totalComments: 0
-    },
-    {
-        cardId: 2,
-        profilePic: '',
-        name: 'Jane Smith',
-        moduleName: 'COS 333',
-        title: 'Question 2',
-        description: 'This is the second question description.',
-        upvotes: 0,
-        downvotes: 0,
-        totalComments: 0
-    },
-    {
-        cardId: 3,
-        profilePic: '',
-        name: 'Bob Johnson',
-        moduleName: 'COS 320',
-        title: 'Question 3',
-        description: 'This is the third question description.',
-        upvotes: 0,
-        downvotes: 0,
-        totalComments: 0
-    },
-    {
-        cardId: 4,
-        profilePic: '',
-        name: 'Alice Brown',
-        moduleName: 'COS 301',
-        title: 'Question 4',
-        description: 'This is the fourth question description.',
-        upvotes: 0,
-        downvotes: 0,
-        totalComments: 0
-    },
-    {
-        cardId: 5,
-        profilePic: '',
-        name: 'Eve Johnson',
-        moduleName: 'COS 332',
-        title: 'Question 5',
-        description: 'This is the fifth question description.',
-        upvotes: 0,
-        downvotes: 0,
-        totalComments: 0
-    },
-    {
-        cardId: 6,
-        profilePic: '',
-        name: 'Michael Smith',
-        moduleName: 'COS 333',
-        title: 'Question 6',
-        description: 'This is the sixth question description.',
-        upvotes: 0,
-        downvotes: 0,
-        totalComments: 0
-    },
-    {
-        cardId: 7,
-        profilePic: '',
-        name: 'Emily Brown',
-        moduleName: 'COS 320',
-        title: 'Question 7',
-        description: 'This is the seventh question description.',
-        upvotes: 0,
-        downvotes: 0,
-        totalComments: 0
-    },
-    {
-        cardId: 8,
-        profilePic: '',
-        name: 'Daniel Doe',
-        moduleName: 'COS 301',
-        title: 'Question 8',
-        description: 'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.',
-        upvotes: 0,
-        downvotes: 0,
-        totalComments: 0
-    }
-];
+const data = [];
 
+function fetchDataFromServer() {
+    // Make an AJAX request to fetch data from the server
+    fetch('../php/getQuestions.php') 
+        .then(response => response.json())
+        .then(result => {
+            // Store the retrieved data in the 'data' variable
+            data.length = 0; // Clear existing data
+            data.push(...result);
+
+            // Call the 'filterCards' function to display the data
+            filterCards('All');
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
 
 function filterCards(module) {
     const cardContainer = document.querySelector('.card-container');
@@ -106,15 +33,11 @@ function filterCards(module) {
         }
     });
 
-    mockData.forEach((data) => {
+    data.forEach((data) => {
         if (module === 'All' || data.moduleName === module) {
             const card = document.createElement('div');
             card.classList.add('card');
-
-            card.addEventListener('click', () => {
-                redirectToThread(data.cardId); 
-            });
-
+            
             const profilePicSrc = data.profilePic.trim() === '' ? 'assets/ProfilePic.png' : data.profilePic;
 
             card.innerHTML = `
@@ -140,7 +63,7 @@ function filterCards(module) {
                         <img src="assets/downvote.png" alt="Downvote">
                         <span class="counter">${data.downvotes}</span>
                     </button>
-                    <button class="action-button comment-button">
+                    <button class="action-button comment-button" onclick="redirectToThread(${data.id})">
                         <img src="assets/comment.png" alt="Comment" style="width:27px;">
                         <span class="counter">${data.totalComments}</span>
                     </button>
@@ -180,7 +103,7 @@ function activateOverlay(){
     overlay.style.display = 'flex'
 }
 
-function disableOverlay(){
+function deactivateOverlay(){
     overlay = document.getElementById('overlay');
     overlay.style.display = 'none'
 
@@ -192,5 +115,22 @@ function redirectToThread(cardId) {
     window.location.href = `thread.php?id=${cardId}`;
 }
 
-filterCards('All');
-disableOverlay();
+
+window.addEventListener('load', () => {
+    deactivateOverlay();
+    fetchDataFromServer();
+});
+
+function validateForm() {
+    const topic = document.getElementById("topic").value.trim();
+    const module = document.getElementById("module").value.trim();
+    const description = document.getElementById("description").value.trim();
+
+    if (topic === "" || module === "" || description === "") {
+        alert("All fields are required.");
+        return false;
+    }
+
+    return true; // Allow form submission
+}
+
