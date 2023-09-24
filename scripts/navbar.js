@@ -24,3 +24,7 @@ function handleLinkClick(event) {
 links.forEach(link => {
     link.addEventListener('click', handleLinkClick);
 });
+
+
+
+

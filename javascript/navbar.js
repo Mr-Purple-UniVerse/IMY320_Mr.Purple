@@ -21,3 +21,19 @@ navItems.forEach(navItem => {
         navItem.classList.add('selected');
     }
 });
+
+// Get a reference to the button element
+const homeButton = document.getElementById("home-button");
+const homeButton = document.getElementById("home-button");
+const homeButton = document.getElementById("home-button");
+const homeButton = document.getElementById("home-button");
+
+// Add a click event listener to the button
+redirectButton.addEventListener("click", function () {
+    console.log("clicked")
+    // Specify the URL you want to redirect to
+    const redirectTo = "./home.php"; // Replace with your desired URL
+
+    // Redirect the user to the specified URL
+    window.location.href = redirectTo;
+});

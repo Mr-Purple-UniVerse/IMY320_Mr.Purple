@@ -7,19 +7,19 @@
     <div class="navbar-container">
         <p id="title">UniVerse</p>
         <div class="nav-items">
-            <div class ="nav-item">
+            <div class ="nav-item" id="home-button">
                 <p>Home</p>
             </div>
-            <div class ="nav-item">
+            <div class ="nav-item" id="resources-button">
                 <p>Resources</p>
             </div>
-            <div class ="nav-item">
+            <div class ="nav-item" id="map-button">
                 <p>Map</p>
             </div>
-            <div class ="nav-item">
+            <div class ="nav-item" id="chat-button">
                 <p>Study Groups</p>
             </div>
-            <div class ="nav-item">
+            <div class ="nav-item" id="profile-button">
                 <p>Profile</p>
             </div>  
         </div>
