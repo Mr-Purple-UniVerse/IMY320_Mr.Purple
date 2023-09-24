@@ -13,6 +13,8 @@ body {
 
 .profile-container {
     padding: 3em;
+    width: 75vw;
+    float: right;
 }
 
 .user-header {
@@ -21,7 +23,7 @@ body {
 }
 
 .user-info {
-    margin-left: 4em;
+    margin-left: 3em;
     margin-top: 1em;
     font-family: 'Poppins';
 }
@@ -29,6 +31,7 @@ body {
 .user-info h1{
     font-weight: 600;
     font-size: 3em;
+    text-transform: capitalize;
 }
 
 .user-info p {
@@ -44,6 +47,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.user-img:hover {
+    cursor: pointer;
 }
 
 .user-img img {
@@ -64,8 +72,10 @@ h2 {
     border: 2px solid #8D30AA;
     border-radius: 0.8em;
     padding: 1em;
-    min-height: 20vh;
+    height: 20vh;
     margin-bottom: 3em;
+    width: 100%;
+    font-size: 1em;
 }
 
 .registered-modules-wrapper {
@@ -133,3 +143,30 @@ h2 {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
     display: none;
 }
+  
+.hover-background {
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    top: 50%;
+    left: 50%;
+    padding: 50em;
+    color: white;
+    font-size: 2.5em;
+    transform: translate(-50%, -50%);
+  }
+  
+  .user-img {
+    position: relative;
+  }
+  
+  .user-img:hover .hover-background {
+    display: block;
+  }
+
+  .message {
+    position: absolute;
+    bottom: 0;
+
+  }
+  

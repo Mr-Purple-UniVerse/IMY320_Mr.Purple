@@ -1,3 +1,32 @@
+<?php
+    session_start();
+
+    $email = '';
+    $profilePhoto = '';
+
+    if(isset($_SESSION['name']) && isset($_SESSION['surname']) && isset($_SESSION['email'])) {
+        $name = $_SESSION['name'];
+        $surname = $_SESSION['surname'];
+        $email = $_SESSION['email'];
+
+        $conn = new mysqli("34.27.203.247", "admin", "iloveapples", "universe");
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT profilePhoto FROM Users WHERE email='$email'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $profilePhoto = $row['profilePhoto'];
+        }
+
+        $conn->close();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +40,8 @@
 
     <link rel="stylesheet" href="css/profile.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
     <!--     Fonts     -->
@@ -23,20 +54,37 @@
 
 <body>
 
+    <?php
+        include 'navbar.php';
+    ?>
+
     <div class="profile-container">
         <div class="user-header">
-            <div class="user-img">
-                <img src="/assets/background.png" alt="user-img">
+            <div class="user-img" id="userImg">
+                <?php if($profilePhoto != ''): ?>
+                    <img src="<?php echo $profilePhoto; ?>" alt="user-img">
+                <?php else: ?>
+                    <img src="/assets/background.png" alt="user-img">
+                <?php endif; ?>
+
+                <div class="hover-background"><i class="fa-solid fa-pencil"></i></div>
             </div>
 
             <div class="user-info">
-                <h1>John Cena</h1>
+                <h1>
+                    <?php echo $name . ' ' . $surname; ?>
+                </h1>
                 <p>BSc Computer Science</p>
             </div>
         </div>
 
         <h2>About Me</h2>
-        <div class="about-me" contenteditable="true">I am awesome!</div>
+
+        <textarea name="about-me" id="aboutme" cols="30" rows="10" class="about-me" placeholder="Tell us more about yourself!"></textarea>
+
+        <!-- <div class="about-me" id="aboutMe" contenteditable="true">
+            <span id="placeholder">Tell us more about yourself!</span>
+        </div> -->
 
         <h2>Registered Modules</h2>
         <div class="registered-modules-wrapper">
@@ -54,6 +102,15 @@
         <div class="overlay-inner-wrapper">
             
         </div>
+    </div>
+
+    <form id="uploadForm" action="/php/uploadPhoto.php" method="post" enctype="multipart/form-data" style="display: none;">
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit" id="submitBtn">
+    </form>
+
+    <div class="message">
+        Profile picture updated!
     </div>
 
 
