@@ -1,14 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const addBtn = document.querySelector('.add-btn');
     const overlay = document.getElementById('add-overlay');
 
-    addBtn.addEventListener('click', function() {
-        overlay.style.display = 'block';
+    const registeredModules = document.getElementById('registeredModules');
+    registeredModules.addEventListener('click', function(event) {
+        const target = event.target;
+
+        if (target.classList.contains('add-btn')) {
+            overlay.style.display = 'flex';
+        }
     });
 
     overlay.addEventListener('click', function() {
         overlay.style.display = 'none';
     });
+
+
+    ///STOP PROP
+    const overlayDiv = document.querySelector('.overlay-inner-wrapper');
+
+    overlayDiv.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+
+    ///UPLOADING PROFILE IMAGES
 
     const userImgDiv = document.getElementById('userImg');
     const fileInput = document.getElementById('fileToUpload');
@@ -42,11 +57,139 @@ document.addEventListener('DOMContentLoaded', function() {
             contentType: false,
             success: function(response) {
                 console.log('File uploaded successfully');
-                // Optionally, you can handle the response from the server here
+                $('.message').addClass('message-animate');
+
+                setTimeout(function() {
+                    $('.message').removeClass('message-animate');
+                }, 2200);
             },
             error: function(xhr, status, error) {
                 console.error('Error uploading file:', error);
             }
         });
     }    
+
+
+    ///CHANGING ABOUT BTN DISPLAY
+    document.getElementById('aboutme').addEventListener('input', function() {
+        document.querySelector('.update-profile-btn').style.display = 'block';
+    });
+
+    ///CHANGING DEGREE BTN DISPLAY
+    document.getElementById('degree').addEventListener('input', function() {
+        document.querySelector('.update-degree-btn').style.display = 'block';
+    });
+
+    ///MODULE INPUT VALIDATION
+    document.querySelector('.addModuleBtn').addEventListener('click', function() {
+        const input = document.querySelector('input');
+        const formatMsg = document.querySelector('.formatMsg');
+    
+        const regex = /^[A-Za-z]{3}\s\d{3}$/;
+    
+        if (regex.test(input.value)) {
+            // formatMsg.textContent = 'Format: Valid';
+            // formatMsg.style.color = 'green';
+            formatMsg.style.color = 'black';
+
+            const moduleCode = input.value.toUpperCase();
+
+            $.ajax({
+                url: '/php/addModule.php',
+                type: 'POST',
+                data: {
+                    moduleCode: moduleCode
+                },
+                success: function(response) {
+                    input.value = '';
+                    overlay.click();
+                    console.log('res: ', response);
+
+
+                    if (response !== 'User not found') {
+                        const moduleCodes = response.split(',');
+            
+                        const registeredModules = document.getElementById('registeredModules');
+            
+                        registeredModules.innerHTML = '';
+            
+                        // Insert the new modules
+                        moduleCodes.forEach(function(moduleCode) {
+                            const moduleDiv = document.createElement('div');
+                            moduleDiv.className = 'module';
+                            moduleDiv.textContent = moduleCode.trim();
+                            registeredModules.appendChild(moduleDiv);
+                        });
+
+                        const addBtnDiv = document.createElement('div');
+                        addBtnDiv.className = 'add-btn';
+                        addBtnDiv.innerHTML = '<i class="fa-solid fa-plus"></i>';
+                        registeredModules.appendChild(addBtnDiv);
+                    }
+
+
+                    $('.moduleMessage').addClass('moduleMessage-animate');
+
+                    setTimeout(function() {
+                        $('.moduleMessage').removeClass('moduleMessage-animate');
+                    }, 2200);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        } else {
+            formatMsg.style.color = 'red';
+        }
+    });
+
+    ///REMOVING MODULE
+    
 });
+
+function updateProfile() {
+    var aboutMe = $('#aboutme').val();
+    
+    $.ajax({
+        url: '../php/updateAbout.php',
+        type: 'POST',
+        data: { aboutMe: aboutMe },
+        success: function(response) {
+            console.log('Profile updated successfully');
+            document.querySelector('.update-profile-btn').style.display = 'none';
+
+            $('.aboutMessage').addClass('aboutMessage-animate');
+
+            setTimeout(function() {
+                $('.aboutMessage').removeClass('aboutMessage-animate');
+            }, 2200);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error updating profile:', error);
+        }
+    });
+}
+
+function updateDegree() {
+    var degree = $('#degree').text();
+
+    $.ajax({
+        url: '../php/updateDegree.php',
+        type: 'POST',
+        data: { degree: degree },
+        success: function(response) {
+            console.log('Degree updated successfully');
+            document.querySelector('.update-degree-btn').style.display = 'none';
+
+            $('.degreeMessage').addClass('degreeMessage-animate');
+
+            setTimeout(function() {
+                $('.degreeMessage').removeClass('degreeMessage-animate');
+            }, 2200);
+
+        },
+        error: function(xhr, status, error) {
+            console.error('Error updating degree:', error);
+        }
+    });
+}

@@ -10,9 +10,9 @@
     <div class="navbar-container">
         <p id="title">UniVerse</p>
         <div class="nav-items">
-            <div class ="nav-item">
+            <a href="home.php" class ="nav-item">
                 <p>Home</p>
-            </div>
+            </a>
             <div class ="nav-item">
                 <p>Resources</p>
             </div>
@@ -22,9 +22,9 @@
             <div class ="nav-item">
                 <p>Study Groups</p>
             </div>
-            <div class ="nav-item">
+            <a href="profile.php" class ="nav-item">
                 <p>Profile</p>
-            </div>  
+            </a>  
         </div>
         <p id="logout">
             Log Out
