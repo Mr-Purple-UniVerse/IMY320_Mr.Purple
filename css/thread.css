@@ -1,0 +1,221 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.question-content {
+    position:fixed;
+    color: white;
+    background: linear-gradient(to right, #8d2aa8, #a530af);
+    padding: 20px;   
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    z-index: 99;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    width: 96%;
+    border-radius: 30px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-left: 1%;
+    margin-right: 3%;
+    
+}
+.comment-wrapper{
+    width: 100%;
+}
+
+.comment-box{
+    background: linear-gradient(to right, #8d2aa8, #a530af);   
+    width: 96%;
+    margin-left: 1%;
+    margin-right: 3%;
+    margin-top:243px;
+    position: fixed;
+    padding: 20px;
+    z-index: 98;
+    border-radius: 30px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.back-button{
+    position: fixed; 
+    bottom: 1%;  
+    left: 1%; 
+    cursor: pointer;
+    border: none;
+    background: none;
+    background-color: #ca3bbb;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.comment-button {
+    margin-top: 0.5em;
+    min-width: 7%;
+    padding: 0.3em;
+    border-radius: 0.6em;
+    font-size: 1.3em;
+    border: none;
+    background-color: white;
+    font-family: 'Poppins';
+    transition: all 200 ms;
+}
+
+.comment-button:hover {
+    cursor: pointer;
+    background-color: rgb(227, 227, 227);
+}
+
+textarea {
+    width: 50%;
+    height: 50px;
+    padding: 1em;
+    font-size: 0.9em;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0.5em;
+    outline: none;
+    border: none;
+    font-family: 'Poppins';
+    color: white;
+    resize: none;
+    scrollbar-width: thin; 
+    scrollbar-color: #ca3bbb rgba(255, 255, 255, 0.3); 
+}
+
+textarea::-webkit-scrollbar {
+    width: 12px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: #ca3bbb;
+    border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background-color: #a530af;
+}
+
+textarea::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+label {
+    color: rgba(255,255,255,0.6);
+    font-family: 'Poppins';
+    font-size: 1.5em;
+}
+
+.question-content .profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-right: 30px;
+}
+
+.question-content .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.question-content .question-title {
+    font-family: 'Poppins';
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.question-content .question-description {
+    font-size: 1.2em;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.name{
+    color: white;
+}
+
+.counter{
+    color: white;
+    font-family: 'Poppins';
+}
+
+.question-content .actions {
+    display: flex;
+    align-items: center;
+}
+
+.question-content .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 1.2em;
+    color: #888;
+}
+
+.margin{
+    margin-top: 450px;
+}
+/* Comments Section Styles */
+.comments-section {
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.comments-section .comment {
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    background: linear-gradient(to left, #fda8de, #d8a7dd);  
+    border-radius: 30px;
+}
+
+.comments-section .comment:hover {
+    transform: translateY(-5px);
+}
+
+.comments-section .comment .profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comments-section .comment .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comments-section .comment .comment-description {
+    font-size: 1.2em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.comments-section .comment .actions {
+    display: flex;
+    align-items: center;
+}
+
+.comments-section .comment .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 1.2em;
+    color: white;
+}
