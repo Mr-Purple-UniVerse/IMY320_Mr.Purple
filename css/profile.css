@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@keyframes moveDown {
+    0% {
+        top: -8em;
+        opacity: 1;
+    }
+    50% {
+        top: 0em;
+    }
+    75% {
+        opacity: 1;
+        top: 0;
+    }
+    100% {
+        opacity: 0;
+        top: 0;
+    }
+}
+
+body {
+    overflow-x: hidden;
+}
+
+i {
+    pointer-events: none;
+}
+
+.profile-container {
+    padding: 3em;
+    width: 75vw;
+    float: right;
+}
+
+.user-header {
+    display: flex;
+    margin-bottom: 3em;
+}
+
+.user-info {
+    margin-left: 3em;
+    margin-top: 1em;
+    font-family: 'Poppins';
+}
+
+.user-info h1{
+    font-weight: 600;
+    font-size: 3em;
+    text-transform: capitalize;
+}
+
+.user-info p {
+    color: rgba(0,0,0,0.4);
+    font-size: 1.2em;
+}
+
+.user-img {
+    width: 15em;
+    height: 15em;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.user-img:hover {
+    cursor: pointer;
+}
+
+.user-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h2 {
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+.about-me {
+    margin-top: 0.5em;
+    font-family: 'Montserrat';
+    outline: none;
+    border: 2px solid #8D30AA;
+    border-radius: 0.8em;
+    padding: 1em;
+    height: 20vh;
+    margin-bottom: 1em;
+    width: 100%;
+    font-size: 1em;
+}
+
+.registered-modules-wrapper {
+    display: flex;
+    margin-top: 0.5em;
+    flex-wrap: wrap;
+}
+
+.module {
+    font-family: 'Montserrat';
+    padding: 1em;
+    border: 2px solid #8D30AA;
+    border-radius: 0.7em;
+    margin-right: 2em;
+    min-width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    position: relative;
+}
+
+.remove-module {
+    width: 2em;
+    height: 2em;
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,175,1) 100%);
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    top: -0.8em;
+    right: -0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    display: none;
+}
+
+.module:hover .remove-module {
+    display: flex;
+}
+
+.remove-module:hover {
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    cursor: pointer;
+}
+
+.add-btn {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,175,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: all 400ms;
+    margin-top: 1em;
+}
+
+.add-btn:hover{
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    cursor: pointer;
+}
+
+.update-profile-btn, .update-degree-btn {
+    padding: 1em;
+    font-family: 'Poppins';
+    font-size: 1.1em;
+    border-radius: 0.5em;
+    border: none;
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,175,1) 100%);
+    color: white;
+    min-width: 10em;
+    transition: all 200ms;
+    margin-bottom: 1em;
+    display: none;
+}
+
+.update-profile-btn:hover, .update-degree-btn:hover {
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    cursor: pointer;
+}
+
+.add-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-inner-wrapper {
+    padding: 2em;
+    background-color: white;
+    width: 40%;
+    border-radius: 0.4em;
+    color: #B238B5;
+}
+
+.overlay-inner-wrapper h2 {
+    font-size: 1.4em;
+    margin-bottom: 1em;
+}
+
+.overlay-inner-wrapper input {
+    outline: none;
+    padding: 1em;
+    border: 2px solid #8D30AA;
+    width: 100%;
+    border-radius: 0.4em;
+    font-size: 1.2em;
+}
+
+.addModuleBtn {
+    padding: 0.7em;
+    font-family: 'Poppins';
+    font-size: 1em;
+    border-radius: 0.4em;
+    border: none;
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,175,1) 100%);
+    color: white;
+    min-width: 8em;
+    margin-top: 1em;
+    transition: all 200ms;
+}
+
+.addModuleBtn:hover {
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    cursor: pointer;
+}
+
+.formatMsg {
+    font-family: 'Montserrat';
+    font-size: 0.8em;
+    color: black;
+    padding-top: 0.5em;
+}
+  
+.hover-background {
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    top: 50%;
+    left: 50%;
+    padding: 50em;
+    color: white;
+    font-size: 2.5em;
+    transform: translate(-50%, -50%);
+  }
+  
+  .user-img {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .user-img:hover .hover-background {
+    display: block;
+    overflow: hidden;
+  }
+
+  .message, .moduleMessage, .aboutMessage, .degreeMessage, .removeMessage {
+    position: fixed;
+    top: -8em;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2em;
+    padding: 1em 4em;
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,175,1) 100%);
+    border-radius: 3em;
+    font-family: 'Poppins';
+    font-size: 1em;
+    color: white;
+  }
+  
+  .message-animate, .moduleMessage-animate, .aboutMessage-animate, .degreeMessage-animate, .removeMessage-animate {
+    animation-name: 'moveDown';
+    animation-duration: 2000ms;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-fill-mode: forwards;
+  }
+
+  .noModulesMsg {
+    margin-top: 1em;
+    margin-right: 2em;
+    font-family: 'Montserrat';
+    font-size: 1em;
+    color: rgb(133,41,168);
+  }
+
+  .user-degree {
+    color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+  }
+
+  .user-degree i {
+    margin-right: 1.2em;
+  }
+
+  .user-degree p {
+    padding: 0.6em;
+    min-width: 40vw;
+    max-width: 40vw;
+  }
+
+  .user-degree p:focus {
+    outline: none;
+    border: 2px solid #8D30AA;
+    border-radius: 0.4em;
+  }

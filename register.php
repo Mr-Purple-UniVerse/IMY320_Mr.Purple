@@ -64,7 +64,7 @@
                 <input type="password" id="confirmPassword" name="confirmPassword"> <br>
             </div>
 
-            <button type="submit">Login</button>
+            <button type="submit">Create Account</button>
         </form>
     </div>
 </body>

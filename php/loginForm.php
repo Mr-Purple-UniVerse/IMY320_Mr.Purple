@@ -13,9 +13,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // User is authenticated
-        // Redirect or perform other actions here
-        echo "Login successful!";
+        session_start();
+
+        $row = $result->fetch_assoc();
+    
+        $_SESSION['email'] = $email;
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['surname'] = $row['surname'];
+        $_SESSION['profilePhoto'] = $row['profilePhoto'];
+
+
+        header('Location: ../../home.php'); // Redirect to index page
     } else {
         // Invalid email or password
         header('Location: ../../login.php?error=invalid');
