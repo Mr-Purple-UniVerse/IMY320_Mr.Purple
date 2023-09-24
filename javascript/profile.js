@@ -142,9 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
             formatMsg.style.color = 'red';
         }
     });
-
-    ///REMOVING MODULE
-    
 });
 
 function updateProfile() {
@@ -190,6 +187,29 @@ function updateDegree() {
         },
         error: function(xhr, status, error) {
             console.error('Error updating degree:', error);
+        }
+    });
+}
+
+function removeModule(moduleCode) {
+    $(".module:contains(" + moduleCode + ")").remove();
+    
+    $.ajax({
+        type: "POST",
+        url: "../php/removeModule.php",
+        data: { moduleCode: moduleCode },
+        success: function(response) {
+            if (response === "success") {
+                console.log('module removed successfully');
+
+                $('.removeMessage').addClass('removeMessage-animate');
+
+                setTimeout(function() {
+                    $('.removeMessage').removeClass('removeMessage-animate');
+                }, 2200);
+            } else {
+                console.log("Error removing module: " + response);
+            }
         }
     });
 }

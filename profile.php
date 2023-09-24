@@ -106,7 +106,7 @@
                     foreach ($moduleCodes as $moduleCode) {
                         echo '<div class="module">' . 
                                 trim($moduleCode) .
-                                '<div class="remove-module">
+                                '<div class="remove-module" onclick="removeModule(\'' . trim($moduleCode) . '\')">
                                     <i class="fa-solid fa-xmark"></i>
                                 </div>' .
                             '</div>';
@@ -147,6 +147,10 @@
 
     <div class="degreeMessage">
         Degree updated!
+    </div>
+
+    <div class="removeMessage">
+        Module removed!
     </div>
 
 </body>

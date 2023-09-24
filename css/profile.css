@@ -271,7 +271,7 @@ h2 {
     overflow: hidden;
   }
 
-  .message, .moduleMessage, .aboutMessage, .degreeMessage {
+  .message, .moduleMessage, .aboutMessage, .degreeMessage, .removeMessage {
     position: fixed;
     top: -8em;
     left: 50%;
@@ -286,7 +286,7 @@ h2 {
     color: white;
   }
   
-  .message-animate, .moduleMessage-animate, .aboutMessage-animate, .degreeMessage-animate {
+  .message-animate, .moduleMessage-animate, .aboutMessage-animate, .degreeMessage-animate, .removeMessage-animate {
     animation-name: 'moveDown';
     animation-duration: 2000ms;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
