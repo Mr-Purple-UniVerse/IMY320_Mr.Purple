@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,7 +37,7 @@
         </div>
 
         <div id="overlay">
-            <form action="" method="post">
+            <form action="/php/uploadQuestion.php" method="post"  onsubmit="return validateForm()">
                 <h3>Ask your Question?</h3>
                 
                 <div class="topic-and-module">
@@ -60,7 +62,7 @@
 
                 <div class="question-buttons">
                     <button type="submit">Submit</button>
-                    <button class="cancel-button" onclick="deactivateOverlay()">Cancel</button>
+                    <button class="cancel-button" type="button" onclick="deactivateOverlay()">Cancel</button>
                 </div>
             </form>
         </div>
