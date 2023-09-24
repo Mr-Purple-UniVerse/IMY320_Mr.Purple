@@ -13,8 +13,12 @@
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 .navbar-container {
-    position: absolute;
+    position: fixed;
     width: 25vw;
     background: linear-gradient(152deg, rgba(255, 255, 255, 0.91) -7.6%, #FFF 91.99%);
     -webkit-box-shadow: inset -8px 0px 42px -30px rgba(0,0,0,0.75);
