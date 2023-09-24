@@ -7,27 +7,30 @@
     <!-- Other meta tags and head content here -->
 </head>
 <body>
-    <p id="title">UniVerse</p>
-    <div class="nav-items">
-        <div class ="nav-item">
-            <p>Home</p>
+    <div class="navbar-container">
+        <p id="title">UniVerse</p>
+        <div class="nav-items">
+            <div class ="nav-item">
+                <p>Home</p>
+            </div>
+            <div class ="nav-item">
+                <p>Resources</p>
+            </div>
+            <div class ="nav-item">
+                <p>Map</p>
+            </div>
+            <div class ="nav-item">
+                <p>Study Groups</p>
+            </div>
+            <div class ="nav-item">
+                <p>Profile</p>
+            </div>  
         </div>
-        <div class ="nav-item">
-            <p>Resources</p>
-        </div>
-        <div class ="nav-item">
-            <p>Map</p>
-        </div>
-        <div class ="nav-item">
-            <p>Study Groups</p>
-        </div>
-        <div class ="nav-item">
-            <p>Profile</p>
-        </div>  
+        <p id="logout">
+            Log Out
+        </p>
     </div>
-    <p id="logout">
-        Log Out
-    </p>
-    <script src="./scripts/navbar.js"></script>
+
+    <script src="/javascript/navbar.js"></script>
 </body>
 </html>

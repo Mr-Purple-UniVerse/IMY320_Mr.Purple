@@ -7,9 +7,11 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <title>Uni Verse</title>
+    <title>UniVerse</title>
 
     <link rel="stylesheet" href="css/index.css">
+
+    <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
     <!--     Fonts     -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -25,5 +27,18 @@
         <img src="assets/logo.png" alt="logo">
         <h1>UniVerse</h1>
     </div>
+
+    <div class="index-wrapper">
+        <h1>Welcome</h1>
+        <p>Connect with students and boost your academic success and I will add more text here eventually... I hope</p>
+
+        <div class="buttons">
+            <a href="login.php"><button class="login-btn">Login</button></a>
+            <a href="register.php"><button class="register-btn">Register</button></a>
+            <!-- <button class="register-btn">Register</button> -->
+        </div>
+    </div>
 </body>
 </html>
+
+<script src="javascript/index.js"></script>
