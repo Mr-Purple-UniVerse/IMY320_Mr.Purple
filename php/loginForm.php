@@ -22,6 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'surname' => $row['surname'],
             'profilePhoto' => $row['profilePhoto']
         ];
+        session_start();
+        $_SESSION['email'] = $email;
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['surname'] = $row['surname'];
+        $_SESSION['profilePhoto'] = $row['profilePhoto'];
 
         header('Content-Type: application/json');
         echo json_encode($response);
