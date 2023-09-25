@@ -118,6 +118,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             const moduleDiv = document.createElement('div');
                             moduleDiv.className = 'module';
                             moduleDiv.textContent = moduleCode.trim();
+
+                            const removeModuleDiv = document.createElement('div');
+                            removeModuleDiv.className = 'remove-module';
+                            removeModuleDiv.onclick = function() {
+                                removeModule(moduleCode.trim());
+                            }
+
+                            const xmarkIcon = document.createElement('i');
+                            xmarkIcon.className = 'fa-solid fa-xmark';
+
+                            removeModuleDiv.appendChild(xmarkIcon);
+                            moduleDiv.appendChild(removeModuleDiv);
                             registeredModules.appendChild(moduleDiv);
                         });
 
@@ -193,7 +205,7 @@ function updateDegree() {
 
 function removeModule(moduleCode) {
     $(".module:contains(" + moduleCode + ")").remove();
-    
+
     $.ajax({
         type: "POST",
         url: "../php/removeModule.php",

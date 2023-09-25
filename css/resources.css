@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.resources-container {
+    padding: 3em;
+    width: 75vw;
+    float: right;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#searchResource {
+    outline: none;
+    padding: 0.8em 2em;
+    border: 2px solid #8D30AA;
+    width: 100%;
+    border-radius: 2em;
+    font-size: 1.2em;
+    padding-right: 4em;
+    color: #8D30AA;
+}
+
+.search-bar i {
+    position: absolute;
+    right: 2em;
+    font-size: 1.2em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8D30AA;
+}
+
+.plus-button{
+    position: fixed; 
+    bottom: 1em;
+    right: 1em;
+    cursor: pointer;
+    border: 2px solid #B238B5;
+    background: none;
+    background-color: white;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    font-size: 2em;
+    border-radius: 50%;
+}
+
+.plus-button:hover {
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.resource-cards-wrapper {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.resource-card {
+    background: linear-gradient(to right, #8d2aa8, #a530af);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+    min-height: 40vh;
+    max-height: 40vh;
+}
+
+.resource-card:hover {
+    transform: translateY(-0.2em);
+    transition: transform 0.3s ease;
+}
+
+
+.resource-card h3 {
+    font-family: 'Poppins';
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.resource-main-info {
+    display: flex;
+    margin-bottom: 1.2em;
+    margin-top: 0.3em;
+}
+
+.resource-img {
+    background-color: white;
+    height: 10em;
+    max-width: 40%;
+    min-width: 40%;
+    margin-right: 2em;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.resource-img iframe {
+    min-width: 100%;
+    max-width: 100%;
+    height: 10em;
+    object-fit: cover;
+}
+
+.resource-text {
+    max-width: 63%;
+    min-width: 63%;
+    font-family: 'Montserrat';
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8em;
+}
+
+.resource-title {
+    color: white;
+    font-size: 1.2em;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    margin-bottom: 0.8em;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 1em;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins';
+    color: white;
+    font-size: 1.1em;
+}
+
+
+.user-img {
+    width: 3em;
+    height: 3em;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+.user-img img {
+    /* width: 100%; */
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+
+.add-resource-overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.overlay-inner-wrapper {
+    padding: 2em;
+    background-color: white;
+    width: 40%;
+    border-radius: 0.4em;
+    color: #B238B5;
+}
+
+.overlay-inner-wrapper h2 {
+    font-size: 1.4em;
+    margin-bottom: 1em;
+    font-family: 'Poppins';
+}
+
+.half-input {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.single-input {
+    width: 62%;
+}
+
+.select-input {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+label {
+    color: #B238B5;
+    font-family: 'Montserrat';
+}
+
+.select-input select {
+    width: 100%;
+    background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 97% 50%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid #8D30AA;
+    padding: 1em;
+    border-radius: 0.4em;
+    color: #B238B5;
+    font-size: 1.2em;
+    font-family: 'Montserrat';
+}
+
+
+.overlay-inner-wrapper input {
+    outline: none;
+    padding: 1em;
+    border: 2px solid #8D30AA;
+    width: 100%;
+    border-radius: 0.4em;
+    font-size: 1.2em;
+    color: #B238B5;
+    font-family: 'Montserrat';
+}
+
+.overlay-inner-wrapper textarea {
+    font-family: 'Montserrat';
+    outline: none;
+    border: 2px solid #8D30AA;
+    border-radius: 0.4em;
+    padding: 1em;
+    height: 20vh;
+    margin-bottom: 1em;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+#submitResourceBtn, #closeOverlayBtn {
+    padding: 1em;
+    font-family: 'Poppins';
+    font-size: 1.1em;
+    border-radius: 0.5em;
+    border: none;
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,175,1) 100%);
+    color: white;
+    min-width: 10em;
+    transition: all 200ms;
+    /* margin-bottom: 0.4em; */
+    margin-top: 1.5em;
+    margin-right: 1em;
+}
+
+#submitResourceBtn:hover, #closeOverlayBtn:hover {
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    cursor: pointer;
+}
+
+.msg {
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 0.8em;
+    margin-top: 0.3em;
+}
+
+.userName {
+    text-transform: capitalize;
+}

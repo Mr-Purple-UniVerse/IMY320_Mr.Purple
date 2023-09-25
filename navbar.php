@@ -10,7 +10,7 @@
             <a href="./home.php" class ="nav-item">
                 <p>Home</p>
             </a>
-            <a class ="nav-item">
+            <a href="resources.php" class ="nav-item">
                 <p>Resources</p>
             </a>
             <a href="./map.php" class ="nav-item" >
