@@ -25,6 +25,17 @@
             }
         }
 
+        $sql = "SELECT profilePhoto, modules, about, degree FROM Users WHERE email='$email'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $profilePhoto = $row['profilePhoto'];
+            $modules = $row['modules'];
+            $aboutMe = $row['about'];
+            $degree = $row['degree'];
+        }
+
         // $conn->close();
     }
 ?>
@@ -127,9 +138,18 @@
                 <div class="select-input">
                     <label for="moduleCode">Module</label>
                     <select name="moduleCode" id="moduleCode">
-                        <option value="COS 300">COS 300</option>
-                        <option value="COS 200">COS 200</option>
-                        <option value="COS 100">COS 100</option>
+                            <?php 
+                                if ($modules == '') {
+                                    echo '<option value="All">All</option>';
+                                } else {
+                                    echo '<option value="All">All</option>';
+                                    $moduleCodes = explode(',', $modules);
+
+                                    foreach ($moduleCodes as $moduleCode) {
+                                        echo '<option value="' . trim($moduleCode) . '">' . trim($moduleCode) . '</option>';
+                                    }
+                                }  
+                            ?>
                     </select>
                 </div>
             </div>

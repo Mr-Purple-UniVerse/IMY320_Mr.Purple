@@ -1,3 +1,38 @@
+<?php
+    session_start();
+
+    $email = '';
+    $profilePhoto = '';
+    $modules = '';
+    $aboutMe = '';
+    $degree = '';
+
+    if(isset($_SESSION['name']) && isset($_SESSION['surname']) && isset($_SESSION['email'])) {
+        $name = $_SESSION['name'];
+        $surname = $_SESSION['surname'];
+        $email = $_SESSION['email'];
+
+        $conn = new mysqli("34.27.203.247", "admin", "iloveapples", "universe");
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT profilePhoto, modules, about, degree FROM Users WHERE email='$email'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $profilePhoto = $row['profilePhoto'];
+            $modules = $row['modules'];
+            $aboutMe = $row['about'];
+            $degree = $row['degree'];
+        }
+
+        $conn->close();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,15 +60,21 @@
         
         <div id="mainHome">
             <div class="home-navigation">
-                <button onclick="filterCards('All')">All</button>
-                <button onclick="filterCards('COS 332')">COS 332</button>
-                <button onclick="filterCards('COS 333')">COS 333</button>
-                <button onclick="filterCards('COS 320')">COS 320</button>
-                <button onclick="filterCards('COS 301')">COS 301</button>
+                <?php
+                if ($modules == '') {
+                    echo '<button onclick="fetchDataFromServer(\'All\')">All</button>';
+                    echo '<p class="noModulesMsg">No modules yet, add some!</p>';
+                } else {
+                    echo '<button onclick="fetchDataFromServer(\'All\')">All</button>';
+
+                    $moduleCodes = explode(',', $modules);
+
+                    foreach ($moduleCodes as $moduleCode) {
+                        echo '<button onclick="fetchDataFromServer(\'' . trim($moduleCode) . '\')">'.trim($moduleCode) .'</button>';
+                    }
+                }
+                ?>
             </div>
-
-            <br> <br> <br> <br>
-
             <div class="card-container">
             </div>
 
@@ -45,6 +86,7 @@
 
         <div id="overlay">
             <form action="/php/uploadQuestion.php" method="post"  onsubmit="return validateForm()">
+            <input value="<?php echo $profilePhoto; ?>" type="hidden" name="profilePhoto"></input>
                 <h3>Ask your Question</h3>
                 
                 <div class="topic-and-module">
@@ -56,9 +98,18 @@
                     <div class="module-wrapper">
                         <label for="module">Module</label> <br>
                         <select id="module" name="module">
-                            <option value="COS 301">COS 301</option>
-                            <option value="COS 332">COS 332</option>
-                            <option value="IMY 320">IMY 320</option>
+                            <?php 
+                                if ($modules == '') {
+                                    echo '<option value="All">All</option>';
+                                } else {
+                                    echo '<option value="All">All</option>';
+                                    $moduleCodes = explode(',', $modules);
+
+                                    foreach ($moduleCodes as $moduleCode) {
+                                        echo '<option value="' . trim($moduleCode) . '">' . trim($moduleCode) . '</option>';
+                                    }
+                                }  
+                            ?>
                         </select>
                     </div>
                 </div>
