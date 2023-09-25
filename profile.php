@@ -3,6 +3,9 @@
 
     $email = '';
     $profilePhoto = '';
+    $modules = '';
+    $aboutMe = '';
+    $degree = '';
 
     if(isset($_SESSION['name']) && isset($_SESSION['surname']) && isset($_SESSION['email'])) {
         $name = $_SESSION['name'];
@@ -15,12 +18,15 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "SELECT profilePhoto FROM Users WHERE email='$email'";
+        $sql = "SELECT profilePhoto, modules, about, degree FROM Users WHERE email='$email'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $profilePhoto = $row['profilePhoto'];
+            $modules = $row['modules'];
+            $aboutMe = $row['about'];
+            $degree = $row['degree'];
         }
 
         $conn->close();
@@ -74,33 +80,51 @@
                 <h1>
                     <?php echo $name . ' ' . $surname; ?>
                 </h1>
-                <p>BSc Computer Science</p>
+
+                <div class="user-degree">
+                    <i class="fa-solid fa-pencil"></i><p contenteditable="true" id="degree"><?php if($degree != '') {echo $degree;} else {echo 'Click here to add your degree!';}?></p>
+                </div>
+
+                <button class="update-degree-btn" onclick="updateDegree()">Update Degree</button>
             </div>
         </div>
 
         <h2>About Me</h2>
 
-        <textarea name="about-me" id="aboutme" cols="30" rows="10" class="about-me" placeholder="Tell us more about yourself!"></textarea>
+        <textarea name="about-me" id="aboutme" cols="30" rows="10" class="about-me" placeholder="Tell us more about yourself!"><?php if($aboutMe != '') {echo $aboutMe;}?></textarea>
 
-        <!-- <div class="about-me" id="aboutMe" contenteditable="true">
-            <span id="placeholder">Tell us more about yourself!</span>
-        </div> -->
+        <button class="update-profile-btn" onclick="updateProfile()">Update About</button>
 
         <h2>Registered Modules</h2>
-        <div class="registered-modules-wrapper">
-            <div class="module">COS 301</div>
-            <div class="module">COS 332</div>
+        <div class="registered-modules-wrapper" id="registeredModules">
+            <?php
+                if($modules == '') {
+                    echo '<p class="noModulesMsg">No modules yet, add some!</p>';
+                } else {
+                    $moduleCodes = explode(',', $modules);
+
+                    foreach ($moduleCodes as $moduleCode) {
+                        echo '<div class="module">' . 
+                                trim($moduleCode) .
+                                '<div class="remove-module" onclick="removeModule(\'' . trim($moduleCode) . '\')">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div>' .
+                            '</div>';
+                    }
+                }
+            ?>
             <div class="add-btn">
                 <i class="fa-solid fa-plus"></i>
             </div>
         </div>
-
-        <button class="update-profile-btn">Update Profile</button>
     </div>
 
     <div class="add-overlay" id="add-overlay">
         <div class="overlay-inner-wrapper">
-            
+            <h2>Add a module by typing out its module code.</h2>
+            <input type="text" placeholder="IMY 320">
+            <p class="formatMsg">Format: Add a space between 3 characters and the 3 numbers</p>
+            <button class="addModuleBtn">Add</button>
         </div>
     </div>
 
@@ -113,6 +137,21 @@
         Profile picture updated!
     </div>
 
+    <div class="moduleMessage">
+        Module Added!
+    </div>
+
+    <div class="aboutMessage">
+        About me updated!
+    </div>
+
+    <div class="degreeMessage">
+        Degree updated!
+    </div>
+
+    <div class="removeMessage">
+        Module removed!
+    </div>
 
 </body>
 </html>

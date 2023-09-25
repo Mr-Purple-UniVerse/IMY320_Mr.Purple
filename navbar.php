@@ -7,10 +7,10 @@
     <div class="navbar-container">
         <p id="title">UniVerse</p>
         <div class="nav-items">
-            <div class ="nav-item" id="home-button">
+            <a href="home.php" class ="nav-item">
                 <p>Home</p>
-            </div>
-            <div class ="nav-item" id="resources-button">
+            </a>
+            <div class ="nav-item">
                 <p>Resources</p>
             </div>
             <div class ="nav-item" id="map-button">
@@ -19,9 +19,9 @@
             <div class ="nav-item" id="chat-button">
                 <p>Study Groups</p>
             </div>
-            <div class ="nav-item" id="profile-button">
+            <a href="profile.php" class ="nav-item">
                 <p>Profile</p>
-            </div>  
+            </a>  
         </div>
         <p id="logout">
             Log Out
