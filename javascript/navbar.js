@@ -21,3 +21,6 @@ navItems.forEach(navItem => {
         navItem.classList.add('selected');
     }
 });
+
+
+

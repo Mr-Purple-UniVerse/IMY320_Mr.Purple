@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'Poppins-Bold'; /* Choose a name for your font */
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.rounded-image {
+    border-radius: 50%; /* This creates a perfect circle */
+    width: 200px; /* Set the width of your image */
+    height: 200px; /* Set the height of your image */
+}
+  
+
+
+#chat-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-b    etween;
+    margin-left: 25vw;
+    height: 100vh;
+}
+.right-sidebar{
+    width: 14.4375rem;
+    height: 68.4375rem;
+    flex-shrink: 0;
+    background: linear-gradient(152deg, rgba(255, 255, 255, 0.91) -7.6%, #FFF 91.99%);
+    background-color: black;
+    box-shadow: -8px 0px 20px 5px rgba(0, 0, 0, 0.25) inset;
+}
+.middle{
+    display: flex;
+    flex-direction: column;
+}
+#middle-bottom{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-self: flex-end; /* Place this item at the bottom */
+}
+#message-bar{
+    width: 60.375rem;
+    height: 3.4375rem;
+    flex-shrink: 0;
+    border-radius: 0.9375rem;
+    background-color: black;
+    background: #FFF;
+    border: 2px solid #8529A8;
+}
+#message-hist{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: auto;
+   
+}
+.message{
+    position: relative; 
+}
+.my-message{
+    position: relative; 
+    margin-left: auto;
+}
+
+.my-message-overlay{
+    position: absolute; /* Position the overlay absolutely within the container */
+    top: 0; /* Adjust as needed to position the overlay where you want */
+    left: 0; /* Adjust as needed to position the overlay where you want */
+    
+    display: flex;
+    width: 29.0625rem;
+    height: 8.125rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vw;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: 'Montserrat';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.message-overlay{
+ 
+    position: absolute; /* Position the overlay absolutely within the container */
+    top: 0; /* Adjust as needed to position the overlay where you want */
+    left: 0; /* Adjust as needed to position the overlay where you want */
+    
+    display: flex;
+    width: 29.0625rem;
+    height: 8.125rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5rem;
+    flex-shrink: 0;
+    color: #8D30AA;
+    font-family: 'Montserrat';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#send-icon{
+    width: 3.4375rem;
+    height: 3.4375rem;
+    flex-shrink: 0;
+    background: linear-gradient(93deg, #8529A8 0.34%, #AB47AF 107.05%);
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center;
+}
+.study-name{
+    color: #000;
+    font-family: Poppins-Bold;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.middle-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.module-icon{
+    width: 5.125rem;
+    height: 5.125rem;
+    flex-shrink: 0;
+    background-color: black;
+}
+
+.module-name{
+    color: rgba(0, 0, 0, 0.60);
+    text-align: center;
+    font-family: Poppins-Bold;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
