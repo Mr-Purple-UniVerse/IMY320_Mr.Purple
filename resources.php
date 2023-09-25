@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="css/resources.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
     <!--     Fonts     -->
@@ -95,11 +97,11 @@
 
 
 
-    <button class="plus-button">
+    <button class="plus-button" onclick="activateOverlay()">
         <i class="fa-solid fa-plus"></i>
     </button>
 
-    <div class="add-resource-overlay">
+    <div class="add-resource-overlay" id="resourceOverlayOuterWrapper" onclick="deactivateOverlay()">
         <div class="overlay-inner-wrapper">
             <h2>Add a resource</h2>
 
@@ -126,10 +128,12 @@
 
             <div class="full-input">
                 <label for="resourceFile">File</label>
-                <input type="file" name="resourceFile" id="resourceFile">
+                <input type="file" name="resourceFile" id="resourceFile" accept=".pdf, .doc, .docx" multiple="false">
+                <span class="msg">Accepted formats: PDF, DOC, DOCX (May only upload a single file)</span>
             </div>
 
-            <button>Submit</button>
+            <button id="submitResourceBtn">Submit</button>
+            <button id="submitResourceBtn" onclick="deactivateOverlay()">Cancel</button>
         </div>
     </div>
 </body>

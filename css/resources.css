@@ -170,6 +170,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 .overlay-inner-wrapper {
@@ -189,6 +190,7 @@ body {
 .half-input {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1em;
 }
 
 .single-input {
@@ -217,6 +219,7 @@ label {
     border-radius: 0.4em;
     color: #B238B5;
     font-size: 1.2em;
+    font-family: 'Montserrat';
 }
 
 
@@ -228,4 +231,46 @@ label {
     border-radius: 0.4em;
     font-size: 1.2em;
     color: #B238B5;
+    font-family: 'Montserrat';
+}
+
+.overlay-inner-wrapper textarea {
+    font-family: 'Montserrat';
+    outline: none;
+    border: 2px solid #8D30AA;
+    border-radius: 0.4em;
+    padding: 1em;
+    height: 20vh;
+    margin-bottom: 1em;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+#submitResourceBtn, #closeOverlayBtn {
+    padding: 1em;
+    font-family: 'Poppins';
+    font-size: 1.1em;
+    border-radius: 0.5em;
+    border: none;
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,175,1) 100%);
+    color: white;
+    min-width: 10em;
+    transition: all 200ms;
+    /* margin-bottom: 0.4em; */
+    margin-top: 1.5em;
+    margin-right: 1em;
+}
+
+#submitResourceBtn:hover, #closeOverlayBtn:hover {
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    cursor: pointer;
+}
+
+.msg {
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 0.8em;
+    margin-top: 0.3em;
 }
