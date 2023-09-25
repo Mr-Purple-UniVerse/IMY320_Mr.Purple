@@ -53,7 +53,7 @@
         <h3>Login</h3>
         <p>Don't have an account? <a href="register.php">Register</a></p>
 
-        <form action="/php//loginForm.php" method="post">
+        <form id="login-form">
             <div class="input-wrapper">
                 <label for="email">Email</label> <br>
                 <i class="fa-regular fa-envelope"></i>
@@ -68,15 +68,11 @@
 
             <button type="submit">Login</button>
 
-            <?php
-                if(isset($_GET['error']) && $_GET['error'] == 'invalid') {
-                    echo "<p style='color: red;'>Invalid email or password. Please try again.</p>";
-                }
-            ?>
-
+            <p id="error-message" style="color: red;"></p>
         </form>
+
     </div>
+    <script src="javascript/login.js"></script>
 </body>
 </html>
 
-<script src="javascript/login.js"></script>

@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap');
+
+
 @font-face {
     font-family: 'Poppins-Bold'; /* Choose a name for your font */
     src: url('../fonts/Poppins-Bold.ttf') format('truetype');
   }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap');
 
 
 * {
@@ -12,6 +13,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+*:focus {
+    outline: none;
+}
+
 
 .rounded-image {
     border-radius: 50%; /* This creates a perfect circle */
@@ -23,17 +28,14 @@
 
 #chat-container{
     display: flex;
-    flex-direction: row;
-    justify-content: space-b    etween;
-    margin-left: 25vw;
     height: 100vh;
+    float: right;
 }
 .right-sidebar{
-    width: 14.4375rem;
-    height: 68.4375rem;
+    width: 5vw;
+    height: 100vh;
     flex-shrink: 0;
     background: linear-gradient(152deg, rgba(255, 255, 255, 0.91) -7.6%, #FFF 91.99%);
-    background-color: black;
     box-shadow: -8px 0px 20px 5px rgba(0, 0, 0, 0.25) inset;
 }
 .middle{
@@ -47,11 +49,10 @@
     align-self: flex-end; /* Place this item at the bottom */
 }
 #message-bar{
-    width: 60.375rem;
+    width: 65vw;
     height: 3.4375rem;
     flex-shrink: 0;
     border-radius: 0.9375rem;
-    background-color: black;
     background: #FFF;
     border: 2px solid #8529A8;
 }
@@ -125,8 +126,11 @@
     display: flex;
     justify-content: center; /* Horizontally center content */
     align-items: center;
+    color: white;
+    border: none;
+    outline: none;
 }
-.study-name{
+#study-name{
     color: #000;
     font-family: Poppins-Bold;
     font-size: 2.25rem;
