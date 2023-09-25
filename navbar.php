@@ -10,15 +10,15 @@
             <a href="home.php" class ="nav-item">
                 <p>Home</p>
             </a>
-            <div class ="nav-item">
+            <a class ="nav-item">
                 <p>Resources</p>
-            </div>
-            <div class ="nav-item" id="map-button">
+            </a>
+            <a href="map.php" class ="nav-item" >
                 <p>Map</p>
-            </div>
-            <div class ="nav-item" id="chat-button">
+            </a>
+            <a href="chat.php" class ="nav-item" >
                 <p>Study Groups</p>
-            </div>
+            </a>
             <a href="profile.php" class ="nav-item">
                 <p>Profile</p>
             </a>  

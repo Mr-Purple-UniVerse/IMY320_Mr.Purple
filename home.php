@@ -16,54 +16,60 @@
         <link rel="stylesheet" href="CSS/home.css">
     </head>
     <body>
-        <div id="mainHome">
-            <div class="home-navigation">
-                <button onclick="filterCards('All')">All</button>
-                <button onclick="filterCards('COS 332')">COS 332</button>
-                <button onclick="filterCards('COS 333')">COS 333</button>
-                <button onclick="filterCards('COS 320')">COS 320</button>
-                <button onclick="filterCards('COS 301')">COS 301</button>
-            </div>
+        <?php
+            include 'navbar.php';
+        ?>
+        <div id="home-container">
+            <div id="mainHome">
+                <div class="home-navigation">
+                    <button onclick="filterCards('All')">All</button>
+                    <button onclick="filterCards('COS 332')">COS 332</button>
+                    <button onclick="filterCards('COS 333')">COS 333</button>
+                    <button onclick="filterCards('COS 320')">COS 320</button>
+                    <button onclick="filterCards('COS 301')">COS 301</button>
+                </div>
 
-            <div class="card-container">
-            </div>
+                <div class="card-container">
+                </div>
 
-            
-            <button class="plus-button" onclick="activateOverlay()">
-                <img src="assets/plus.png" alt="Plus" style="width:50px;">
-            </button>
-        </div>
-
-        <div id="overlay">
-            <form action="/php/uploadQuestion.php" method="post"  onsubmit="return validateForm()">
-                <h3>Ask your Question?</h3>
                 
-                <div class="topic-and-module">
-                    <div class="topic-wrapper">
-                        <label for="topic">Topic</label> <br>
-                        <input type="text" id="topic" name="topic"> <br>
-                    </div>
-                    <div class="module-wrapper">
-                        <label for="module">--Module--</label><br>
-                        <select id="module" name="module">
-                            <option value="COS 301">COS 301</option>
-                            <option value="COS 332">COS 332</option>
-                            <option value="IMY 320">IMY 320</option>
-                        </select>
-                    </div>
-                </div>
+                <button class="plus-button" onclick="activateOverlay()">
+                    <img src="assets/plus.png" alt="Plus" style="width:50px;">
+                </button>
+            </div>
 
-                <div class="input-wrapper">
-                    <label for="description">Description</label> <br>
-                    <textarea id="description" name="description" rows="4"></textarea>
-                </div>
+            <div id="overlay">
+                <form action="/php/uploadQuestion.php" method="post"  onsubmit="return validateForm()">
+                    <h3>Ask your Question?</h3>
+                    
+                    <div class="topic-and-module">
+                        <div class="topic-wrapper">
+                            <label for="topic">Topic</label> <br>
+                            <input type="text" id="topic" name="topic"> <br>
+                        </div>
+                        <div class="module-wrapper">
+                            <label for="module">--Module--</label><br>
+                            <select id="module" name="module">
+                                <option value="COS 301">COS 301</option>
+                                <option value="COS 332">COS 332</option>
+                                <option value="IMY 320">IMY 320</option>
+                            </select>
+                        </div>
+                    </div>
 
-                <div class="question-buttons">
-                    <button type="submit">Submit</button>
-                    <button class="cancel-button" type="button" onclick="deactivateOverlay()">Cancel</button>
-                </div>
-            </form>
+                    <div class="input-wrapper">
+                        <label for="description">Description</label> <br>
+                        <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
+
+                    <div class="question-buttons">
+                        <button type="submit">Submit</button>
+                        <button class="cancel-button" type="button" onclick="deactivateOverlay()">Cancel</button>
+                    </div>
+                </form>
+            </div>      
         </div>
+        
 
         <script src="javascript/home.js"></script>
 

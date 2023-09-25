@@ -3,13 +3,30 @@
     src: url('../fonts/Poppins-Bold.ttf') format('truetype');
   }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.rounded-image {
+    border-radius: 50%; /* This creates a perfect circle */
+    width: 200px; /* Set the width of your image */
+    height: 200px; /* Set the height of your image */
+}
+  
 
 
 #chat-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-b    etween;
     margin-left: 25vw;
+    height: 100vh;
 }
 .right-sidebar{
     width: 14.4375rem;
@@ -43,11 +60,15 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-grow: 1;
+    margin-bottom: auto;
    
 }
 .message{
     position: relative; 
+}
+.my-message{
+    position: relative; 
+    margin-left: auto;
 }
 
 .my-message-overlay{
@@ -61,10 +82,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-right: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vw;
     flex-shrink: 0;
     color: #FFF;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;
@@ -86,7 +109,7 @@
     padding-left: 5rem;
     flex-shrink: 0;
     color: #8D30AA;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;

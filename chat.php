@@ -6,7 +6,6 @@
     <title>Chat Page</title>
 
 </head>
-<body>
 
 
 <body>
@@ -27,7 +26,8 @@
                 <p class="module-name">COS 301</p>
             </div>
             <div id="message-hist">
-                <div class="message">
+
+                <div class="message">                 
                     <svg xmlns="http://www.w3.org/2000/svg" width="551" height="132" viewBox="0 0 551 132" fill="none">
                     <path d="M29.8661 126.032C34.1906 129.195 39.5151 131.114 45.2721 131.114H524.292C538.698 131.114 550.375 119.437 550.375 105.031V27.0822C550.375 12.6762 538.698 1 524.292 1H45.2721C30.8661 1 19.19 12.6762 19.19 27.0822V105.004C19.19 120.6 12.7032 131.087 1 131.087C1 131.087 16.5142 132.141 29.8931 126.005L29.8661 126.032Z" stroke="#8529A8" stroke-miterlimit="10"/>
                     </svg>
@@ -35,7 +35,7 @@
                         <p>Does anyone know what’s going on with the credits for this module? Is it lower than last year??</p>
                     </div>
                 </div>
-                <div class="message">
+                <div class="my-message">
                     <svg xmlns="http://www.w3.org/2000/svg" width="491" height="139" viewBox="0 0 491 139" fill="none">
                     <path d="M462.332 103.659V35.2843C462.332 15.7957 444.527 0 422.558 0H39.7745C17.8058 0 0 15.7957 0 35.2843V103.622C0 123.111 17.8058 138.907 39.7745 138.907H422.517C431.337 138.907 439.416 136.347 446.01 132.033C466.413 140.333 490.071 138.907 490.071 138.907C472.224 138.907 462.332 124.683 462.332 103.622V103.659Z" fill="url(#paint0_linear_35_449)"/>
                     <defs>
