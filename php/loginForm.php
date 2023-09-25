@@ -9,25 +9,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM Users WHERE email='$email' AND password='$password'";
+    $sql = "SELECT id, name, surname, profilePhoto FROM Users WHERE email='$email' AND password='$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        session_start();
-
         $row = $result->fetch_assoc();
-    
-        $_SESSION['email'] = $email;
-        $_SESSION['name'] = $row['name'];
-        $_SESSION['surname'] = $row['surname'];
-        $_SESSION['profilePhoto'] = $row['profilePhoto'];
 
+        // Return user ID via HTTP POST
+        $response = [
+            'id' => $row['id'],
+            'name' => $row['name'],
+            'surname' => $row['surname'],
+            'profilePhoto' => $row['profilePhoto']
+        ];
 
-        header('Location: ../../home.php'); // Redirect to index page
+        header('Content-Type: application/json');
+        echo json_encode($response);
     } else {
         // Invalid email or password
-        header('Location: ../../login.php?error=invalid');
-        exit();
+        header('Content-Type: application/json');
+        echo json_encode(['error' => 'invalid']);
     }
 
     $conn->close();
