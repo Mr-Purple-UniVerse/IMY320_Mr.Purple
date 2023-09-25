@@ -105,9 +105,19 @@ body {
 .resource-img {
     background-color: white;
     height: 10em;
-    max-width: 30%;
-    min-width: 30%;
+    max-width: 40%;
+    min-width: 40%;
     margin-right: 2em;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.resource-img iframe {
+    min-width: 100%;
+    max-width: 100%;
+    height: 10em;
+    object-fit: cover;
 }
 
 .resource-text {
@@ -273,4 +283,8 @@ label {
     font-family: 'Montserrat';
     font-size: 0.8em;
     margin-top: 0.3em;
+}
+
+.userName {
+    text-transform: capitalize;
 }

@@ -1,3 +1,34 @@
+<?php
+    session_start();
+
+    $email = '';
+    $profilePhoto = '';
+    $modules = '';
+    $aboutMe = '';
+    $degree = '';
+
+    if(isset($_SESSION['name']) && isset($_SESSION['surname']) && isset($_SESSION['email'])) {
+        $email = $_SESSION['email'];
+
+        $conn = new mysqli("34.27.203.247", "admin", "iloveapples", "universe");
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT * FROM Resources";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $resourcesArray[] = $row;
+            }
+        }
+
+        // $conn->close();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +38,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <title>UniVerse | Login</title>
+    <title>UniVerse | Resources</title>
 
     <link rel="stylesheet" href="css/resources.css">
 
@@ -36,65 +67,47 @@
         </div>
 
         <div class="resource-cards-wrapper">
-            <div class="resource-card">
-                <h3>COS 330 Assignment</h3>
-                <div class="resource-main-info">
-                    <div class="resource-img"></div>
-                    <div class="resource-text">
-                        <p class="resource-title">This was the past paper which consisted of bla bla bla</p> <br>
-                        <p>2 Pages</p>
-                        <p>COS 330</p>
-                    </div>
-                </div>
 
-                <div class="divider"></div>
+            <?php
 
-                <div class="user-info">
-                    <div class="user-img">
-                        <img src="/uploads/650f2ce297d3b.jpg" alt="user-img">
-                    </div>
-                    <p>John Cena (BIS Multimedia)</p>
-                </div>
-            </div>
+                foreach($resourcesArray as $resource) {
+                    $userEmail = $resource["user"];
+                    $userQuery = "SELECT name, surname, profilePhoto, degree FROM Users WHERE email='$userEmail'";
+                    $userResult = $conn->query($userQuery);
 
-            <div class="resource-card">
-                <h3>COS 330 Assignment</h3>
-                <div class="resource-main-info">
-                    <div class="resource-img"></div>
-                    <div class="resource-text">
-                        <p>This was the past paper which consisted of bla bla bla</p> <br>
-                        <p>2 Pages</p>
-                        <p>COS 330</p>
-                    </div>
-                </div>
-                <div class="user-info">
-                    <div class="user-img">
-                        <img src="/uploads/650f2ce297d3b.jpg" alt="user-img">
-                    </div>
-                    <p>John Cena (BIS Multimedia)</p>
-                </div>
-            </div>
-            <div class="resource-card">
-                <h3>COS 330 Assignment</h3>
-                <div class="resource-main-info">
-                    <div class="resource-img"></div>
-                    <div class="resource-text">
-                        <p>This was the past paper which consisted of bla bla bla</p> <br>
-                        <p>2 Pages</p>
-                        <p>COS 330</p>
-                    </div>
-                </div>
-                <div class="user-info">
-                    <div class="user-img">
-                        <img src="/uploads/650f2ce297d3b.jpg" alt="user-img">
-                    </div>
-                    <p>John Cena (BIS Multimedia)</p>
-                </div>
-            </div>
-        </div>
-    
-    </div>
+                    $fileLink = $resource["file"];
+                    $googleViewerUrl = "https://docs.google.com/viewer?url=" . urlencode($fileLink) . "&embedded=true";
 
+                    if ($userResult->num_rows > 0) {
+                        $userRow = $userResult->fetch_assoc();
+                        $userName = $userRow["name"];
+                        $userSurname = $userRow["surname"];
+                        $userProfilePhoto = $userRow["profilePhoto"];
+                        $userDegree = $userRow["degree"];
+
+
+
+                        echo '<div class="resource-card">';
+                        echo '<h3>' . $resource["title"] . '</h3>';
+                        echo '<div class="resource-main-info">';
+                            echo '<div class="resource-img">';
+                                echo '<iframe src="https://docs.google.com/viewer?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true&a=bi&pagenumber=1&scale=2" style="width:600px; height:500px;" frameborder="0"></iframe>';
+                            echo '</div>';                        
+                        echo '<div class="resource-text">';
+                            echo '<p class="resource-title">' . $resource["description"] . '</p> <br>';
+                            echo '<p>2 Pages</p>';
+                            echo '<p>' . $resource["module"] . '</p>';
+                        echo '</div></div>';
+                        echo '<div class="divider"></div>';
+                        echo '<div class="user-info">';
+                            echo '<div class="user-img">';
+                                echo '<img src="' . $userProfilePhoto . '" alt="user-img">';
+                            echo '</div>';
+                            echo '<p class="userName">' . $userName . ' ' . $userSurname . ' (' . $userDegree . ')</p>';
+                        echo '</div></div>';
+                    }
+                }
+            ?>
 
 
     <button class="plus-button" onclick="activateOverlay()">
