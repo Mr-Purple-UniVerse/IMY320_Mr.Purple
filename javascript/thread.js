@@ -66,7 +66,9 @@ function loadThreadContent() {
         questionContent.classList.add('question-content');
         questionContent.innerHTML = `
             <div class="profile">
-                <img src="${getValidProfilePicUrl(thread.profilePic)}" alt="${thread.name}">
+                <div class="profile-image">
+                    <img src="${getValidProfilePicUrl(thread.profilePic)}" alt="${thread.name}">
+                </div>
                 <div class="name">${thread.name}</div>
                 <div class="module-name">${thread.moduleName}</div>
             </div>
@@ -112,7 +114,9 @@ function loadThreadContent() {
             commentElement.classList.add('comment');
             commentElement.innerHTML = `
                 <div class="profile">
-                    <img src="${getValidProfilePicUrl(comment.profilePic)}" alt="profile-pic" class="profile-pic">
+                    <div class="profile-image">
+                        <img src="${getValidProfilePicUrl(comment.profilePic)}" alt="profile-pic" class="profile-pic">
+                    </div>
                     <div class="name">${comment.name}</div>
                 </div>
                 <div class="comment-description">${comment.description}</div>
@@ -129,15 +133,9 @@ function loadThreadContent() {
 }
 
 function getValidProfilePicUrl(profilePicUrl) {
-    return isValidImageUrl(profilePicUrl) ? profilePicUrl : 'assets/ProfilePic.png';
+    return  profilePicUrl == '' ? 'assets/ProfilePic.png' : profilePicUrl;
 }
 
-// Function to check if an image URL is valid (exists and is accessible)
-function isValidImageUrl(url) {
-    const img = new Image();
-    img.src = url;
-    return img.complete && img.naturalWidth !== 0;
-}
 
 function upvote(questionId) {
     var imgElement = document.getElementById("upvote" + questionId);
