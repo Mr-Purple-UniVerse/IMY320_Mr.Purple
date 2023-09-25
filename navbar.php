@@ -13,9 +13,9 @@
             <a href="home.php" class ="nav-item">
                 <p>Home</p>
             </a>
-            <div class ="nav-item">
+            <a href="resources.php" class ="nav-item">
                 <p>Resources</p>
-            </div>
+            </a>
             <div class ="nav-item">
                 <p>Map</p>
             </div>

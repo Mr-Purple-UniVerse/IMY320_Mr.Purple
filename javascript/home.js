@@ -50,9 +50,11 @@ function filterCards(module) {
                         <div class="module-name">${data.moduleName}</div>
                     </div>
                 </div>
-                <div class="card-title">${data.title}</div>
-                <div class="card-description">
-                    ${data.description.length > 100 ? data.description.slice(0, 100) + '...' : data.description}
+                <div class="card-text-info">
+                    <div class="card-title">${data.title}</div>
+                    <div class="card-description">
+                        ${data.description.length > 100 ? data.description.slice(0, 100) + '...' : data.description}
+                    </div>
                 </div>
                 <div class="actions">
                     <button class="vote-button upvote-button" onclick="upvote(this)">
@@ -96,19 +98,11 @@ function downvote(button) {
 }
 
 function activateOverlay(){
-    mainHomeDiv = document.getElementById('mainHome');
-    mainHomeDiv.style.display = 'none';
-
-    overlay = document.getElementById('overlay');
-    overlay.style.display = 'flex'
+    document.querySelector('#overlay').style.display = 'flex';
 }
 
 function deactivateOverlay(){
-    overlay = document.getElementById('overlay');
-    overlay.style.display = 'none'
-
-    mainHomeDiv = document.getElementById('mainHome');
-    mainHomeDiv.style.display = 'block';  
+    document.querySelector('#overlay').style.display = 'none';
 }
 
 function redirectToThread(cardId) {
@@ -117,7 +111,7 @@ function redirectToThread(cardId) {
 
 
 window.addEventListener('load', () => {
-    deactivateOverlay();
+    // deactivateOverlay();
     fetchDataFromServer();
 });
 

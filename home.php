@@ -12,12 +12,19 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
 
+        <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
         <link rel="stylesheet" href="CSS/home.css">
     </head>
     <body>
+
+        <?php
+            include 'navbar.php';
+        ?>
+        
         <div id="mainHome">
             <div class="home-navigation">
                 <button onclick="filterCards('All')">All</button>
@@ -27,26 +34,29 @@
                 <button onclick="filterCards('COS 301')">COS 301</button>
             </div>
 
+            <br> <br> <br> <br>
+
             <div class="card-container">
             </div>
 
             
             <button class="plus-button" onclick="activateOverlay()">
-                <img src="assets/plus.png" alt="Plus" style="width:50px;">
+                <i class="fa-solid fa-plus"></i>
             </button>
         </div>
 
         <div id="overlay">
             <form action="/php/uploadQuestion.php" method="post"  onsubmit="return validateForm()">
-                <h3>Ask your Question?</h3>
+                <h3>Ask your Question</h3>
                 
                 <div class="topic-and-module">
                     <div class="topic-wrapper">
                         <label for="topic">Topic</label> <br>
-                        <input type="text" id="topic" name="topic"> <br>
+                        <input type="text" id="topic" name="topic">
                     </div>
+
                     <div class="module-wrapper">
-                        <label for="module">--Module--</label><br>
+                        <label for="module">Module</label> <br>
                         <select id="module" name="module">
                             <option value="COS 301">COS 301</option>
                             <option value="COS 332">COS 332</option>
@@ -60,9 +70,10 @@
                     <textarea id="description" name="description" rows="4"></textarea>
                 </div>
 
+
                 <div class="question-buttons">
-                    <button type="submit">Submit</button>
-                    <button class="cancel-button" type="button" onclick="deactivateOverlay()">Cancel</button>
+                    <button type="submit" id="submitBtn">Submit</button>
+                    <button class="cancel-button" type="button" onclick="deactivateOverlay()" id="cancelBtn">Cancel</button>
                 </div>
             </form>
         </div>

@@ -68,20 +68,21 @@ body{
 }
 
 .selected p{
-    color: #FFF;
+    color: #FFF !important;
 }
 
 
 
 .nav-item p{
     text-decoration: none;
-
+    margin: 0;
     font-family: 'Poppins-Bold';
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     margin-left: 1em;
+    color: #B238B5;
 } 
 
 #logout{
