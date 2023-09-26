@@ -79,8 +79,9 @@ body {
     padding: 1em;
     margin: 1em;
     border-radius: 1em;
-    min-height: 40vh;
-    max-height: 40vh;
+    min-height: 20em;
+    max-height: 20em;
+    cursor: pointer;
 }
 
 .resource-card:hover {
@@ -128,7 +129,7 @@ body {
     font-size: 0.8em;
 }
 
-.resource-title {
+.resource-description {
     color: white;
     font-size: 1.2em;
 }
@@ -286,5 +287,9 @@ label {
 }
 
 .userName {
+    text-transform: capitalize;
+}
+
+.resource-title {
     text-transform: capitalize;
 }

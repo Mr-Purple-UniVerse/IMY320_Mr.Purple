@@ -1,3 +1,5 @@
+<?phpinfo()?>
+
 <?php
     session_start();
 
@@ -99,22 +101,26 @@
 
 
                         echo '<div class="resource-card">';
-                        echo '<h3>' . $resource["title"] . '</h3>';
+                        echo '<h3 class="resource-title">' . $resource["title"] . '</h3>';
                         echo '<div class="resource-main-info">';
                             echo '<div class="resource-img">';
-                                echo '<iframe src="https://docs.google.com/viewer?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true&a=bi&pagenumber=1&scale=2" style="width:600px; height:500px;" frameborder="0"></iframe>';
+                                echo '<iframe src="' . $googleViewerUrl . '" frameborder="0"></iframe>';
                             echo '</div>';                        
                         echo '<div class="resource-text">';
-                            echo '<p class="resource-title">' . $resource["description"] . '</p> <br>';
-                            echo '<p>2 Pages</p>';
-                            echo '<p>' . $resource["module"] . '</p>';
+                            echo '<p class="resource-description">' . $resource["description"] . '</p> <br>';
+                            echo '<p class="resource-module">' . $resource["module"] . '</p>';
                         echo '</div></div>';
                         echo '<div class="divider"></div>';
                         echo '<div class="user-info">';
                             echo '<div class="user-img">';
                                 echo '<img src="' . $userProfilePhoto . '" alt="user-img">';
                             echo '</div>';
-                            echo '<p class="userName">' . $userName . ' ' . $userSurname . ' (' . $userDegree . ')</p>';
+
+                            if($userDegree && $userDegree != '')
+                                echo '<p class="userName">' . $userName . ' ' . $userSurname . ' (' . $userDegree . ')</p>';
+                            else
+                                echo '<p class="userName">' . $userName . ' ' . $userSurname . '</p>';
+
                         echo '</div></div>';
                     }
                 }

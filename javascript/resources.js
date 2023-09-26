@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //     document.querySelector('form').submit();
     // });
 
-
-
     //SUBMITTING RESOURCE
     $('#submitResourceBtn').click(function() {
         var formData = new FormData();
@@ -44,6 +42,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+
+
+    ///SEARCH FILTER
+    var searchInput = document.getElementById('searchResource');
+        var resourceCards = document.querySelectorAll('.resource-card');
+
+        searchInput.addEventListener('keyup', function() {
+            var searchTerm = this.value.toLowerCase();
+
+            resourceCards.forEach(function(card) {
+                console.log('hiii');
+                var resourceTitle = card.querySelector('.resource-title').innerText.toLowerCase();
+                var resourceDescription = card.querySelector('.resource-description').innerText.toLowerCase();
+                var resourceModule = card.querySelector('.resource-module').innerText.toLowerCase();
+
+                if (resourceTitle.includes(searchTerm) || 
+                    resourceDescription.includes(searchTerm) || 
+                    resourceModule.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
 });
 
 function activateOverlay(){
