@@ -4,11 +4,19 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $topic = $_POST["topic"];
+    $profilePic = $_POST["profilePhoto"];
     $module = $_POST["module"];
     $description = $_POST["description"];
     $name = $_SESSION['name'];
     $surname = $_SESSION['surname'];
     $fullName = $name . ' ' . $surname;
+
+    // Get the profilePhoto value from the session variable, or set it to an empty string if not set
+    // $profilePic = isset($_SESSION['profilePhoto']) ? $_SESSION['profilePhoto'] : '';
+
+    // if($profilePic == ''){
+    //     echo '<script>alert("Not empty")</script>';
+    // }
 
     $mysqli = new mysqli("34.27.203.247", "admin", "iloveapples", "universe");
 
@@ -17,12 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Use a prepared statement to safely insert data
-    $query = "INSERT INTO Questions (profilePic, name, moduleName, title, description, upvotes, downvotes, totalComments) VALUES (?, ?, ?, ?, ?, 0, 0, 0)";
+    // Add downvotedUsers and upvotedUsers columns with empty JSON values
+    $query = "INSERT INTO Questions (profilePic, name, moduleName, title, description, upvotes, downvotes, totalComments, downvotedUsers, upvotedUsers) 
+              VALUES (?, ?, ?, ?, ?, 0, 0, 0, '[]', '[]')";
 
     $stmt = $mysqli->prepare($query);
     if ($stmt) {
         // Bind parameters by reference
-        $profilePic = ''; // Empty profilePic, you can modify it accordingly
         $stmt->bind_param("sssss", $profilePic, $fullName, $module, $topic, $description);
 
         // Execute the statement

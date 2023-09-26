@@ -107,9 +107,9 @@ label {
 }
 
 .question-content .profile img {
-    height: 35px;
+    /* height: 35px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 10px; */
 }
 
 .question-content .question-title {
@@ -181,9 +181,9 @@ label {
 }
 
 .comments-section .comment .profile img {
-    height: 25px;
+    /* height: 25px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 10px; */
 }
 
 .comments-section .comment .comment-description {
@@ -208,4 +208,21 @@ label {
     color: white;
 }
 
+
+.profile-image{
+    width:3em;
+    height:3em;
+    border-radius: 50%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.profile-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 

@@ -13,7 +13,7 @@ navItems.forEach(navItem => {
         navItem.classList.add('selected');
     }
 
-    if (currentPath === "/study.php" && navItemText === "Study Groups") {
+    if (currentPath === "/chat.php" && navItemText === "Study Groups") {
         navItem.classList.add('selected');
     }
 

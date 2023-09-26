@@ -27,6 +27,7 @@ body {
     display: flex;
     align-items: center;
     margin: 3em;
+    margin-bottom: 0em;
     width: 100%;
 }
 
