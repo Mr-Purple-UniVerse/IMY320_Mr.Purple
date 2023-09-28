@@ -76,3 +76,7 @@ function activateOverlay(){
 function deactivateOverlay(){
     document.querySelector('#resourceOverlayOuterWrapper').style.display = 'none';
 }
+
+function reloadPage() {
+    window.location.reload();
+}

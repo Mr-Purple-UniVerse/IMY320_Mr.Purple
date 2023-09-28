@@ -81,7 +81,9 @@
 
             <?php
 
-                foreach($resourcesArray as $resource) {
+                $reversedResourcesArray = array_reverse($resourcesArray);
+
+                foreach($reversedResourcesArray as $resource) {
                     $userEmail = $resource["user"];
                     $userQuery = "SELECT name, surname, profilePhoto, degree FROM Users WHERE email='$userEmail'";
                     $userResult = $conn->query($userQuery);
@@ -169,7 +171,7 @@
                 <span class="msg">Accepted formats: PDF, DOC, DOCX (May only upload a single file)</span>
             </div>
 
-            <button id="submitResourceBtn">Submit</button>
+            <button id="submitResourceBtn" onclick="reloadPage()">Submit</button>
             <button id="submitResourceBtn" onclick="deactivateOverlay()">Cancel</button>
         </div>
     </div>
