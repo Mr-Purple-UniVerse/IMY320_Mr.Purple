@@ -24,7 +24,7 @@
             </a>  
         </div>
         <p id="logout">
-            Log Out
+            <a href="./php/logoutForm.php">Log Out</a>
         </p>
     </div>
 

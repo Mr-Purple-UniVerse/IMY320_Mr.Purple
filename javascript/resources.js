@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             contentType: false,
             success: function(response) {
                 if (response === 'success') {
-                    alert('Resource uploaded successfully!');
+                    window.location.reload();
                     // Optionally, update the UI or do any additional tasks here
                 } else {
                     alert('Error uploading resource: ' + response);

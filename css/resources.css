@@ -82,6 +82,7 @@ body {
     min-height: 20em;
     max-height: 20em;
     cursor: pointer;
+    position: relative;
 }
 
 .resource-card:hover {
@@ -114,7 +115,7 @@ body {
     justify-content: center;
 }
 
-.resource-img iframe {
+.resource-img embed {
     min-width: 100%;
     max-width: 100%;
     height: 10em;
@@ -292,4 +293,27 @@ label {
 
 .resource-title {
     text-transform: capitalize;
+}
+
+.download-wrapper {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: rgb(133,41,168);
+    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2em;
+    top: -1em;
+    right: -1em;
+    padding: 1.5em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.resource-card:hover .download-wrapper {
+    opacity: 1;
 }

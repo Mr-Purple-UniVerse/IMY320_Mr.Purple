@@ -89,7 +89,8 @@
                     $userResult = $conn->query($userQuery);
 
                     $fileLink = $resource["file"];
-                    $googleViewerUrl = "https://docs.google.com/viewer?url=" . urlencode($fileLink) . "&embedded=true";
+
+                    $file = $fileLink;
 
                     if ($userResult->num_rows > 0) {
                         $userRow = $userResult->fetch_assoc();
@@ -99,12 +100,13 @@
                         $userDegree = $userRow["degree"];
 
 
+                        $fileName = basename($fileLink);
 
-                        echo '<div class="resource-card">';
+                        echo '<a href="' . $fileLink . '" download="' . $fileName . '"> <div class="resource-card">';
                         echo '<h3 class="resource-title">' . $resource["title"] . '</h3>';
                         echo '<div class="resource-main-info">';
                             echo '<div class="resource-img">';
-                                echo '<iframe src="' . $googleViewerUrl . '" frameborder="0"></iframe>';
+                                echo "<embed src='$file' type='application/pdf' />";
                             echo '</div>';                        
                         echo '<div class="resource-text">';
                             echo '<p class="resource-description">' . $resource["description"] . '</p> <br>';
@@ -121,7 +123,10 @@
                             else
                                 echo '<p class="userName">' . $userName . ' ' . $userSurname . '</p>';
 
-                        echo '</div></div>';
+                        echo '</div>
+                        <div class="download-wrapper"><i class="fa-solid fa-download"></i></div>
+                        </div>
+                        </a>';
                     }
                 }
             ?>
