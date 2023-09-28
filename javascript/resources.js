@@ -78,5 +78,6 @@ function deactivateOverlay(){
 }
 
 function reloadPage() {
-    window.location.reload();
+    // window.location.reload();
+    document.querySelector('#resourceOverlayOuterWrapper').style.display = 'none';
 }
