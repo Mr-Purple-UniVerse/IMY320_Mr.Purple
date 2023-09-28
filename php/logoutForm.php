@@ -11,6 +11,6 @@ if(isset($_SESSION['user'])) {
 }
 
 // Redirect to the login page
-header("Location: ../login.php");
+header("Location: ../index.php");
 exit();
 ?>

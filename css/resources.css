@@ -123,8 +123,8 @@ body {
 }
 
 .resource-text {
-    max-width: 63%;
-    min-width: 63%;
+    max-width: 38%;
+    min-width: 38%;
     font-family: 'Montserrat';
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.8em;

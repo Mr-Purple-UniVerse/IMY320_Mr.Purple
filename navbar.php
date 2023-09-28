@@ -13,9 +13,6 @@
             <a href="resources.php" class ="nav-item">
                 <p>Resources</p>
             </a>
-            <a href="./map.php" class ="nav-item" >
-                <p>Map</p>
-            </a>
             <a href="./chat.php" class ="nav-item" >
                 <p>Study Groups</p>
             </a>
