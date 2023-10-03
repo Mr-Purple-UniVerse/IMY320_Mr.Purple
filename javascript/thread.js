@@ -262,12 +262,14 @@ function addCommentToSection(comment) {
     const validProfilePicUrl = getValidProfilePicUrl(comment.profilePic);
 
     commentElement.innerHTML = `
-        <div class="profile">
-            <img src="${validProfilePicUrl}" alt="profile-pic" class="profile-pic">
-            <div class="name">${comment.name}</div>
-        </div>
-        <div class="comment-description">${comment.description}</div>
-    `;
+                <div class="profile">
+                    <div class="profile-image">
+                        <img src="${getValidProfilePicUrl(comment.profilePic)}" alt="profile-pic" class="profile-pic">
+                    </div>
+                    <div class="name">${comment.name}</div>
+                </div>
+                <div class="comment-description">${comment.description}</div>
+            `;
 
     commentsSection.insertBefore(commentElement, commentsSection.firstChild.nextSibling);
 
