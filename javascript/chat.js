@@ -18,7 +18,7 @@ function show_messages_of(studyGroupId)
     .then(response => response.json())
     .then(data => {
         data.forEach((message) => {
-            if(message.userid = localStorage.getItem('userid')){
+            if(message.userid === localStorage.getItem('userid')){
                myMessageHTML = `
                <div class="my-message-group">
                <div class="my-message">
