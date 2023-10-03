@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
                    </div>
                </div>
                <div class="user-img">
-                   <img src="/assets/background.png" alt="">
+                   <img src="${localStorage.getItem('profile-photo')}" alt="">
                </div>
            </div>`
         messageHist.innerHTML += myMessageHTML;

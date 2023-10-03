@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {    
                 // Store a key-value pair in Local Storage
                 localStorage.setItem('userid', data.id);
+                localStorage.setItem('profile-photo', data.profilePhoto);
 
                 // Redirect to the specified page
                 window.location.href = "/home.php";
