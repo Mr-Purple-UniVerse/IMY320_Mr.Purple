@@ -37,6 +37,9 @@
     flex-shrink: 0;
     background: linear-gradient(152deg, rgba(255, 255, 255, 0.91) -7.6%, #FFF 91.99%);
     box-shadow: -8px 0px 20px 5px rgba(0, 0, 0, 0.25) inset;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 #middle{
     display: flex;
@@ -48,6 +51,7 @@
     justify-content: space-between;
     flex-direction: row;
     align-self: flex-end; /* Place this item at the bottom */
+    align-items: center;
 }
 #message-bar{
     width: 65vw;
@@ -56,6 +60,7 @@
     border-radius: 0.9375rem;
     background: #FFF;
     border: 2px solid #8529A8;
+    margin: 1em;
 }
 #message-hist{
     display: flex;
@@ -200,6 +205,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-right: 1em;
 }
 
 

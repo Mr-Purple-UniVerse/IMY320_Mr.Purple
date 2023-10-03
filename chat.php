@@ -26,7 +26,7 @@
                     </defs>
                 </svg>
                 <p id="study-name">Code Fusion</p>
-                <p id="module-name">COS 301</p>
+                <p id="module-name" >COS 301</p>
             </div>
             <div id="message-hist">
            
@@ -58,10 +58,13 @@
         <div class="overlay-inner-wrapper" onclick="">
                 <h3>Create New Study Group</h3>
                 <form>
+                    <div class="topic-wrapper">
+                        <label for="topic">Study Group Name</label> <br>
+                        <input type="text" id="userInputStudyGroup" name="topic">
+                    </div>
                     <div>
-                        <input type="text" id="userInputStudyGroup" placeholder="Study Group Name" required>
-                        <br><br>
-                        <input type="text" id="userInputModule" placeholder="Study Group Module" required>
+                        <label for="topic">Topic</label> <br>
+                        <input type="text" id="userInputModule" name="topic">
                     </div>
 
                     <div>
