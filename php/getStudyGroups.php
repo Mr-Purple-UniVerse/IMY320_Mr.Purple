@@ -6,13 +6,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get data from the POST request
-
-$group = $_POST["group"];
-
 
 // SQL query
-$sql = "SELECT `timestamp`, message, profilePhoto, userid FROM chat INNER JOIN Users ON Users.id = chat.userid WHERE studyid = '$group'";
+$sql = "SELECT * FROM studygroups;";
 
 $result = $conn->query($sql);
 
