@@ -36,7 +36,7 @@ function show_messages_of(studyGroupId)
                    </div>
                </div>
                <div class="user-img">
-                   <img src="/assets/background.png" alt="">
+                   <img src="${message.profilePhoto}" alt="">
                </div>
            </div>`
                 messageHist.innerHTML += myMessageHTML;
@@ -44,7 +44,7 @@ function show_messages_of(studyGroupId)
             else{
                 otherMessageHTML = `<div class="other-message-group">
                     <div class="user-img">
-                        <img src="/assets/background.png" alt="">
+                        <img src="${message.profilePhoto}" alt="">
                     </div>
                     <div class="message">                 
                         <svg xmlns="http://www.w3.org/2000/svg" width="551" height="132" viewBox="0 0 551 132" fill="none">
