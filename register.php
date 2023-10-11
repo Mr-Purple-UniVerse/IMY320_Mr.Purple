@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="css/register.css">
 
+    <link rel="icon" href="./assets/favicon.ico">
+
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
     <!--     Fonts     -->
@@ -22,15 +24,49 @@
 </head>
 
 <body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
     <div class="background"></div>
     <div class="header">
-        <img src="assets/logo.png" alt="logo">
+        <img src="assets/logoNew.png" alt="logo">
         <h1>UniVerse</h1>
     </div>
 
-    <div class="login-wrapper">
-        <h3>Create New Account</h3>
-        <p>Already a member? <a href="index.php">Login</a></p>
+    <div class="login-wrapper" id="registerForm">
+
+    <a href="javascript:void(0);" onclick="scrollToButton()">
+        <div id="mouse-scroll">
+        <div class="mouse">
+            <div class="mouse-in"></div>
+        </div>
+        <div>
+            <span class="down-arrow-1"></span>
+            <span class="down-arrow-2"></span>
+            <span class="down-arrow-3"></span>
+        </div>
+        </div>
+        </a>
+
+        <h2>Create New Account<span class="purple">.</span></h2>
+
+        <div class="divider"></div>
+
+        <p>Already a member? <a href="login.php">Login</a></p> <br>
 
         <form action="/php/registerForm.php" method="post">
 
@@ -64,10 +100,11 @@
                 <input type="password" id="confirmPassword" name="confirmPassword"> <br>
             </div>
 
-            <button type="submit">Create Account</button>
+            <button type="submit" id="sub">Create Account</button>
         </form>
     </div>
 </body>
 </html>
 
 <script src="javascript/register.js"></script>
+<script src="javascript/index.js"></script>

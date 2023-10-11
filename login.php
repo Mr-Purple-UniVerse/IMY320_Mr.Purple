@@ -32,6 +32,8 @@
 
     <link rel="stylesheet" href="css/login.css">
 
+    <link rel="icon" href="./assets/favicon.ico">
+
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
     <!--     Fonts     -->
@@ -43,14 +45,35 @@
 </head>
 
 <body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+
     <div class="background"></div>
     <div class="header">
-        <img src="assets/logo.png" alt="logo">
+        <img src="assets/logoNew.png" alt="logo">
         <h1>UniVerse</h1>
     </div>
 
     <div class="login-wrapper">
-        <h3>Login</h3>
+        <h2>Login<span class="purple">.</span></h2>
+
+        <div class="divider"></div>
+
         <p>Don't have an account? <a href="register.php">Register</a></p>
 
         <form id="login-form">
@@ -75,4 +98,6 @@
     <script src="javascript/login.js"></script>
 </body>
 </html>
+
+<script src="javascript/index.js"></script>
 

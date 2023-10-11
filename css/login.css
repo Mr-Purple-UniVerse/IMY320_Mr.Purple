@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap');
 
 * {
     padding: 0;
@@ -8,62 +9,85 @@
 
 body {
     overflow: hidden;
+    cursor: none;
+    background-color: rgba(254, 252, 236);
 }
 
 .background {
     width: 100vw;
     height: 100vh;
-    background-image: url("../assets/background.png");
+    background-image: url("../assets/backgroundNew.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: right;
     background-size: cover;
     z-index: -1;
     position: absolute;
     top: 0;
     left: 0;
+    transform: translateY(20%);
+}
+
+.circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background-color: rgb(100, 71, 245);
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode:hard-light;
+    pointer-events: none;
 }
 
 .header {
     display: flex;
     align-items: center;
     margin: 3em;
-    margin-bottom: 0em;
     width: 100%;
+    margin-left: 2em;
 }
 
 h1 {
     font-family: 'Poppins';
-    color: white;
+    color: rgb(100, 71, 245);
     margin-left: 0.5em;
-    font-size: 5em;
+    font-size: 4em;
+}
+
+.purple {
+    color: rgb(100, 71, 245);
+}
+
+.divider {
+    width: 10%;
+    height: 2px;
+    background-color: rgb(100, 71, 245);
+    margin-bottom: 2em;
 }
 
 .login-wrapper {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    padding: 7em;
-    padding-top: 0em;
-    padding-top: 1em;
+    margin-left: 4em;
+    margin-top: 0.5em;
+    max-width: 40%;
+    min-width: 40%;
+    max-height: 60vh;
+    min-height: 60vh;
+    overflow: scroll;
 }
 
-h3 {
-    font-family: 'Poppins';
-    color: white;
+.login-wrapper h2 {
+    font-family: 'Playfair Display';
     font-size: 3em;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.3em;
 }
 
-p {
+.login-wrapper p {
     font-family: 'Montserrat';
-    color: white;
-    font-size: 1.2em;
-    margin-bottom: 1em;
 }
 
 a {
     font-weight: 700;
-    color: #ff00f7;
+    color: rgb(100, 71, 245);
     text-decoration: underline;
 }
 
@@ -75,7 +99,6 @@ a {
 }
 
 label {
-    color: rgba(255,255,255,0.6);
     font-family: 'Montserrat';
 }
 
@@ -83,17 +106,16 @@ input {
     width: 100%;
     padding: 1em;
     font-size: 1.3em;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 0.5em;
+    border-radius: 0.2em;
     outline: none;
     border: none;
     font-family: 'Poppins';
-    color: white;
     padding-right: 4em;
+    border: 1px solid black;
+    background-color: transparent;
 }
 
 .input-wrapper i {
-    color: white;
     position: absolute;
     top: 50%;
     right: 5%;
@@ -101,18 +123,47 @@ input {
 }
 
 button {
-    margin-top: 1em;
-    min-width: 35%;
     padding: 1em;
-    border-radius: 0.6em;
-    font-size: 1.3em;
-    border: none;
-    background-color: white;
+    border: 1px solid rgb(100, 71, 245);
+    margin-right: 1em;
+    overflow: hidden;
+    background-color: rgb(100, 71, 245);
+    border-radius: 0.2em;
+    min-width: 8em;
+    max-width: 8em;
+    display: block;
+    font-size: 1.1em;
     font-family: 'Poppins';
-    transition: all 200 ms;
+    text-align: center;
+    text-decoration: none;
+    transition: all 200ms;
+    color: white;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: rgb(227, 227, 227);
+    transform: scale(1.05);
+    background-color: rgb(78, 56, 190);
 }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+    border-radius: 0.3em;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

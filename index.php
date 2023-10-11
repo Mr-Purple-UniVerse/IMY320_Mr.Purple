@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="css/index.css">
 
+    <link rel="icon" href="./assets/favicon.ico">
+
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
     <!--     Fonts     -->
@@ -22,20 +24,40 @@
 </head>
 
 <body>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+
+
     <div class="background"></div>
     <div class="header">
-        <img src="assets/logo.png" alt="logo">
+        <img src="assets/logoNew.png" alt="logo">
         <h1>UniVerse</h1>
     </div>
 
     <div class="index-wrapper">
-        <h1>Welcome</h1>
-        <p>Connect with students and boost your academic success and I will add more text here eventually... I hope</p>
+        <h2>Welcome<span class="purple">.</span></h2>
+
+        <div class="divider"></div>
+
+        <p>Unlock the Power of Collaboration! Join UniVerse, where students unite to share knowledge, resources, and create a vibrant academic community!</p>
 
         <div class="buttons">
-            <a href="login.php"><button class="login-btn">Login</button></a>
-            <a href="register.php"><button class="register-btn">Register</button></a>
-            <!-- <button class="register-btn">Register</button> -->
+            <a href="login.php" class="login-btn-a"><span class="login-btn">Login</span></a>
+            <a href="register.php" class="register-btn-a"><span class="register-btn">Register</span></a>
         </div>
     </div>
 </body>

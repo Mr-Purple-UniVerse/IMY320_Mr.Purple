@@ -31,3 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function scrollToButton() {
+    // var form = document.getElementById("registerForm");
+    // var button = document.getElementById("sub");
+    // form.scrollTo({
+    //     top: button.offsetTop - form.offsetTop,
+    //     behavior: 'smooth'
+    // });
+    const El = document.getElementById('registerForm');
+    El.scrollTo({top: El.scrollHeight, behavior: 'smooth'});
+}
