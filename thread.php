@@ -15,6 +15,22 @@
     <link rel="stylesheet" href="CSS/thread.css">
 </head>
 <body>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
         <?php
             include 'navbar.php';
         ?>
@@ -28,5 +44,7 @@
         </button> -->
     </div>
     <script src="javascript/thread.js"></script>
+    <script src="javascript/index.js"></script>
+
 </body>
 </html>

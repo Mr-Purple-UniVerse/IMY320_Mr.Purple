@@ -3,6 +3,24 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    cursor: none;
+}
+
+html {
+    cursor: none;
+}
+
+.circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background-color: rgb(100, 71, 245);
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode:hard-light;
+    pointer-events: none;
+    z-index: 1000;
 }
 
 .question-content {
