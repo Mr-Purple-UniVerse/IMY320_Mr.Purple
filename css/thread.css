@@ -6,17 +6,20 @@ body {
 }
 
 .question-content {
-    position:fixed;
+    position: fixed;
     color: white;
     background: linear-gradient(to right, #8d2aa8, #a530af);
-    padding: 20px;   
-    margin-bottom: 20px;
+    padding: 10px;
     transition: transform 0.3s ease;
     z-index: 99;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    width: 100%;
-    
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    margin-top: 20px;
+    padding-left: 80px;
+    width:100%;
 }
+
 .comment-wrapper{
     width: 100%;
 }
@@ -24,30 +27,33 @@ body {
 .comment-box{
     background: linear-gradient(to right, #8d2aa8, #a530af);   
     width: 100%;
-    margin-top:197px;
     position: fixed;
     padding: 20px;
+    padding-left: 80px;
+    margin-bottom: 20px;
+    bottom: 0;
     z-index: 98;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
 }
 
 .back-button{
-    position: fixed; 
-    bottom: 1%;  
-    left: 1%; 
-    cursor: pointer;
+    min-width: 5%;
+    padding: 0.1em;
+    border-radius: 0.6em;
+    font-size: 0.8em;
     border: none;
-    background: none;
-    background-color: #ca3bbb;
-    align-items: center;
-    padding: 20px;
-    border-radius: 20px;
+    background-color: white;
+    font-family: 'Poppins';
+    transition: all 200 ms;
+    cursor: default;
 }
 
 .comment-button {
-    min-width: 7%;
-    padding: 0.3em;
+    min-width: 5%;
+    padding: 0.1em;
     border-radius: 0.6em;
-    font-size: 1em;
+    font-size: 0.8em;
     border: none;
     background-color: white;
     font-family: 'Poppins';
@@ -59,9 +65,13 @@ body {
     background-color: rgb(227, 227, 227);
 }
 
+.back-button:hover {
+    background-color: rgb(227, 227, 227);
+}
+
 textarea {
     width: 60%;
-    height: 34px;
+    height: 2.5vh;
     padding: 1em;
     font-size: 0.7em;
     background-color: rgba(255, 255, 255, 0.3);
@@ -95,7 +105,12 @@ textarea::-webkit-scrollbar-track {
 label {
     color: rgba(255,255,255,0.6);
     font-family: 'Poppins';
-    font-size: 1.5em;
+    font-size: 1em;
+}
+
+#mainThread {
+    width: 70vw;
+    float: right;
 }
 
 .question-content .profile {
@@ -104,29 +119,26 @@ label {
     justify-content: space-between;
     margin-bottom: 10px;
     padding-right: 30px;
-}
-
-.question-content .profile img {
-    /* height: 35px;
-    border-radius: 50%;
-    margin-right: 10px; */
+    max-width: 65vw;
 }
 
 .question-content .question-title {
     font-family: 'Poppins';
-    font-size: 1.3em;
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .question-content .question-description {
-    font-size: 1em;
+    font-size: 0.8em;
     color: white;
     margin-bottom: 20px;
+    max-width: 65vw;
 }
 
 .name{
     color: white;
+    font-size: 1em;
 }
 
 .counter{
@@ -150,14 +162,14 @@ label {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    font-size: 1em;
+    font-size: 0.8em;
     color: #888;
 }
 
-.margin{
+/* .margin{
     margin-top: 341px;
-}
-/* Comments Section Styles */
+} */
+
 .comments-section {
     padding: 40px;
 }
@@ -180,11 +192,6 @@ label {
     margin-bottom: 6px;
 }
 
-.comments-section .comment .profile img {
-    /* height: 25px;
-    border-radius: 50%;
-    margin-right: 10px; */
-}
 
 .comments-section .comment .comment-description {
     font-size: 0.9em;

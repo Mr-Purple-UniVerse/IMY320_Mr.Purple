@@ -75,6 +75,8 @@
                 }
                 ?>
             </div>
+            <div class="cards-top-margin">
+            </div>
             <div class="card-container">
             </div>
 

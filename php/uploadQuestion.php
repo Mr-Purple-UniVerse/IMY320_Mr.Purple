@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Use a prepared statement to safely insert data
     // Add downvotedUsers and upvotedUsers columns with empty JSON values
     $query = "INSERT INTO Questions (profilePic, name, moduleName, title, description, upvotes, downvotes, totalComments, downvotedUsers, upvotedUsers) 
-              VALUES (?, ?, ?, ?, ?, 0, 0, 0, '[]', '[]')";
+              VALUES (?, ?, ?, ?, ?, 0, 0, 0, '', '')";
 
     $stmt = $mysqli->prepare($query);
     if ($stmt) {

@@ -86,14 +86,15 @@ function filterCards(module) {
         if (module === 'All' || data.moduleName === module) {
             const card = document.createElement('div');
             card.classList.add('card');
-
+    
             console.log(data);
+            
             // Check if the profilePic URL is empty or invalid, and use the default profile picture if needed
             const profilePicSrc = data.profilePic == '' ? 'assets/ProfilePic.png' : data.profilePic;
-
-            const upvotedUsers = JSON.parse(data.upvotedUsers);
-            const downvotedUsers = JSON.parse(data.downvotedUsers);
-
+    
+            const upvotedUsers = data.upvotedUsers.split(','); // Convert comma-separated string to an array
+            const downvotedUsers = data.downvotedUsers.split(','); // Convert comma-separated string to an array
+    
             card.innerHTML = `
                 <div class="card-header">
                     <div class="profile">
@@ -130,10 +131,11 @@ function filterCards(module) {
                     </button>
                 </div>
             `;
-
+    
             cardContainer.appendChild(card);
         }
     });
+    
 }
 
 // Function to check if a profilePic URL is invalid (empty or doesn't lead to a valid image)
