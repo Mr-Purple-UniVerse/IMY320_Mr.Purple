@@ -1,16 +1,3 @@
-<!--
-=========================================================
-DEFAULT WEB PAGE - THIS FILE CANNOT BE EDITED
-COPYRIGHT INFINITYFREE
-=========================================================
-
-This default web page is protected against modifications.
-
-To upload your own site, please delete this file and
-upload your own page as "index.php" or "index.html".
-
-=========================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +7,13 @@ upload your own page as "index.php" or "index.html".
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <title>Uni Verse</title>
+    <title>UniVerse</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://vpassets.infinityfree.net/welcome2017/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="icon" href="./assets/favicon.ico">
+
+    <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
     <!--     Fonts     -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -35,21 +24,43 @@ upload your own page as "index.php" or "index.html".
 </head>
 
 <body>
-    <div class="main">
-        <div class="cover black" data-color="black"></div>
-        <div class="container">
-            <h1 class="logo cursive">
-                Welcome to UniVerse!
-            </h1>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+
+
+    <div class="background"></div>
+    <div class="header">
+        <img src="assets/logoNew.png" alt="logo">
+        <h1>UniVerse</h1>
+    </div>
+
+    <div class="index-wrapper">
+        <h2>Welcome<span class="purple">.</span></h2>
+
+        <div class="divider"></div>
+
+        <p>Unlock the Power of Collaboration! Join UniVerse, where students unite to share knowledge, resources, and create a vibrant academic community!</p>
+
+        <div class="buttons">
+            <a href="login.php" class="login-btn-a"><span class="login-btn">Login</span></a>
+            <a href="register.php" class="register-btn-a"><span class="register-btn">Register</span></a>
         </div>
-        <!-- <div class="footer">
-            <div class="container">
-                Proudly powered by <br>
-                <a href="https://www.infinityfree.com">
-                    <img src="https://vpassets.infinityfree.net/welcome2017/logo.png" alt="InfinityFree" height="40px">
-                </a>
-            </div>
-        </div> -->
     </div>
 </body>
 </html>
+
+<script src="javascript/index.js"></script>

@@ -1,33 +1,30 @@
-
-
-<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="./css/navbar.css">
     <!-- Other meta tags and head content here -->
 </head>
 <body>
-    <p id="title">UniVerse</p>
-    <div class="nav-items">
-        <div class ="nav-item">
-            <p>Home</p>
+    <div class="navbar-container">
+        <p id="title">UniVerse</p>
+        <div class="nav-items">
+            <a href="./home.php" class ="nav-item">
+                <p>Home</p>
+            </a>
+            <a href="resources.php" class ="nav-item">
+                <p>Resources</p>
+            </a>
+            <a href="./chat.php" class ="nav-item" >
+                <p>Study Group</p>
+            </a>
+            <a href="./profile.php" class ="nav-item">
+                <p>Profile</p>
+            </a>  
         </div>
-        <div class ="nav-item">
-            <p>Resources</p>
-        </div>
-        <div class ="nav-item">
-            <p>Map</p>
-        </div>
-        <div class ="nav-item">
-            <p>Study Groups</p>
-        </div>
-        <div class ="nav-item">
-            <p>Profile</p>
-        </div>  
+        <p id="logout">
+            <a href="./php/logoutForm.php">Log Out</a>
+        </p>
     </div>
-    <p id="logout">
-        Log Out
-    </p>
-    <script src="./scripts/navbar.js"></script>
+
+    <script src="/javascript/navbar.js"></script>
 </body>
 </html>
