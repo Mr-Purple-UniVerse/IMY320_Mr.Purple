@@ -2,6 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap');
 
+.circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background-color: rgb(100, 71, 245);
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode:hard-light;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+body, html {
+    cursor: none;
+}
 
 #mainHome {
     width: 80vw;
@@ -157,7 +173,7 @@
 }
 
 .vote-button, .action-button, .downvote-button {
-    cursor: pointer;
+    cursor: pointer !important;
     border: none;
     background: none;
     padding: 0;
@@ -168,6 +184,7 @@
 
 .comment-button, .share-button{
     margin-left: 2%;
+    cursor: pointer !important;
 }
 
 .vote-button .counter {
@@ -179,7 +196,7 @@
     position: fixed; 
     bottom: 1em;
     right: 1em;
-    cursor: pointer;
+    cursor: pointer !important;
     border: 2px solid #B238B5;
     background: none;
     background-color: white;
@@ -195,7 +212,7 @@
     background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
     color: white;
     border: none;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 #overlay{
@@ -352,7 +369,7 @@ option {
 #submitBtn:hover, #cancelBtn:hover {
     background: rgb(133,41,168);
     background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .profile-image{

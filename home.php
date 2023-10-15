@@ -55,6 +55,22 @@
     </head>
     <body>
 
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
         <?php
             include 'navbar.php';
         ?>
@@ -132,6 +148,7 @@
         
 
         <script src="javascript/home.js"></script>
+        <script src="javascript/index.js"></script>
 
     </body>
 </html>
