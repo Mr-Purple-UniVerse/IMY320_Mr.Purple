@@ -53,6 +53,8 @@
 
     <link rel="stylesheet" href="css/resources.css">
 
+    <link rel="icon" href="./assets/favicon.ico">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
@@ -66,6 +68,23 @@
 </head>
 
 <body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
     <?php
         include 'navbar.php';
     ?>
@@ -102,7 +121,7 @@
 
                         $fileName = basename($fileLink);
 
-                        echo '<a href="' . $fileLink . '" download="' . $fileName . '"> <div class="resource-card">';
+                        echo '<div class="resource-card">';
                         echo '<h3 class="resource-title">' . $resource["title"] . '</h3>';
                         echo '<div class="resource-main-info">';
                             echo '<div class="resource-img">';
@@ -124,9 +143,8 @@
                                 echo '<p class="userName">' . $userName . ' ' . $userSurname . '</p>';
 
                         echo '</div>
-                        <div class="download-wrapper"><i class="fa-solid fa-download"></i></div>
-                        </div>
-                        </a>';
+                        <a href="' . $fileLink . '" download="' . $fileName . '"><div class="download-wrapper"><i class="fa-solid fa-download"></i></div></a>
+                        </div>';
                     }
                 }
             ?>
@@ -172,15 +190,18 @@
 
             <div class="full-input">
                 <label for="resourceFile">File</label>
-                <input type="file" name="resourceFile" id="resourceFile" accept=".pdf, .doc, .docx" multiple="false">
-                <span class="msg">Accepted formats: PDF, DOC, DOCX (May only upload a single file)</span>
+                <input type="file" name="resourceFile" id="resourceFile" accept=".pdf" multiple="false">
+                <span class="msg">Accepted formats: PDF (May only upload a single file)</span>
             </div>
 
-            <button id="submitResourceBtn" onclick="reloadPage()">Submit</button>
-            <button id="submitResourceBtn" onclick="deactivateOverlay()">Cancel</button>
+            <div class="buttons">
+                <button id="submitResourceBtn" onclick="reloadPage()">Submit</button>
+                <button id="submitResourceBtn" onclick="deactivateOverlay()">Cancel</button>
+            </div>
         </div>
     </div>
 </body>
 </html>
 
 <script src="javascript/resources.js"></script>
+<script src="javascript/index.js"></script>

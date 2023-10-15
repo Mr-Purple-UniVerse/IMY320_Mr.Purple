@@ -9,11 +9,25 @@
 
 body {
     overflow-x: hidden;
+    cursor: none;
+}
+
+.circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background-color: rgb(100, 71, 245);
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode:hard-light;
+    pointer-events: none;
+    z-index: 1000;
 }
 
 .resources-container {
-    padding: 3em;
-    width: 75vw;
+    padding: 4em;
+    width: 80vw;
     float: right;
 }
 
@@ -26,21 +40,21 @@ body {
 #searchResource {
     outline: none;
     padding: 0.8em 2em;
-    border: 2px solid #8D30AA;
+    border: 2px solid rgb(100, 71, 245);
     width: 100%;
-    border-radius: 2em;
-    font-size: 1.2em;
+    border-radius: 0.4em;
+    font-size: 1em;
     padding-right: 4em;
-    color: #8D30AA;
+    color: rgb(100, 71, 245);
 }
 
 .search-bar i {
     position: absolute;
     right: 2em;
-    font-size: 1.2em;
+    font-size: 1em;
     top: 50%;
     transform: translateY(-50%);
-    color: #8D30AA;
+    color: rgb(100, 71, 245);
 }
 
 .plus-button{
@@ -48,19 +62,20 @@ body {
     bottom: 1em;
     right: 1em;
     cursor: pointer;
-    border: 2px solid #B238B5;
+    /* border: 2px solid rgb(100, 71, 245); */
     background: none;
-    background-color: white;
+    background-color: rgb(100, 71, 245);
     align-items: center;
     width: 2em;
     height: 2em;
     font-size: 2em;
     border-radius: 50%;
+    border: none;
+    color: white;
 }
 
 .plus-button:hover {
-    background: rgb(133,41,168);
-    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    background-color: rgb(78, 56, 190);
     color: white;
     border: none;
     cursor: pointer;
@@ -73,28 +88,20 @@ body {
 }
 
 .resource-card {
-    background: linear-gradient(to right, #8d2aa8, #a530af);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    background-color: rgb(100, 71, 245);
     transition: transform 0.3s ease;
     padding: 1em;
     margin: 1em;
-    border-radius: 1em;
-    min-height: 20em;
-    max-height: 20em;
-    cursor: pointer;
+    border-radius: 0.4em;
+    min-height: 14em;
+    max-height: 14em;
     position: relative;
 }
-
-.resource-card:hover {
-    transform: translateY(-0.2em);
-    transition: transform 0.3s ease;
-}
-
 
 .resource-card h3 {
     font-family: 'Poppins';
     color: white;
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin-bottom: 0.5em;
 }
 
@@ -106,9 +113,9 @@ body {
 
 .resource-img {
     background-color: white;
-    height: 10em;
-    max-width: 40%;
-    min-width: 40%;
+    height: 6em;
+    max-width: 30%;
+    min-width: 30%;
     margin-right: 2em;
     display: flex;
     overflow: hidden;
@@ -123,8 +130,8 @@ body {
 }
 
 .resource-text {
-    max-width: 38%;
-    min-width: 38%;
+    max-width: 55%;
+    min-width: 55%;
     font-family: 'Montserrat';
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.8em;
@@ -148,25 +155,25 @@ body {
     align-items: center;
     font-family: 'Poppins';
     color: white;
-    font-size: 1.1em;
+    font-size: 0.8em;
 }
 
 
 .user-img {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    margin-right: 1em;
+    margin-right: 0.7em;
 }
 
 .user-img img {
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 
@@ -190,7 +197,7 @@ body {
     background-color: white;
     width: 40%;
     border-radius: 0.4em;
-    color: #B238B5;
+    color: rgb(100, 71, 245);
 }
 
 .overlay-inner-wrapper h2 {
@@ -216,7 +223,7 @@ body {
 }
 
 label {
-    color: #B238B5;
+    color:rgb(100, 71, 245);
     font-family: 'Montserrat';
 }
 
@@ -226,10 +233,10 @@ label {
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    border: 2px solid #8D30AA;
+    border: 2px solid rgb(100, 71, 245);
     padding: 1em;
     border-radius: 0.4em;
-    color: #B238B5;
+    color: rgb(100, 71, 245);
     font-size: 1.2em;
     font-family: 'Montserrat';
 }
@@ -238,47 +245,46 @@ label {
 .overlay-inner-wrapper input {
     outline: none;
     padding: 1em;
-    border: 2px solid #8D30AA;
+    border: 2px solid rgb(100, 71, 245);
     width: 100%;
     border-radius: 0.4em;
     font-size: 1.2em;
-    color: #B238B5;
+    color: rgb(100, 71, 245);
     font-family: 'Montserrat';
 }
 
 .overlay-inner-wrapper textarea {
     font-family: 'Montserrat';
     outline: none;
-    border: 2px solid #8D30AA;
+    border: 2px solid rgb(100, 71, 245);
     border-radius: 0.4em;
     padding: 1em;
     height: 20vh;
     margin-bottom: 1em;
     width: 100%;
     font-size: 1.2em;
+    color: rgb(78, 56, 190);
 }
 
-#submitResourceBtn, #closeOverlayBtn {
+/* #submitResourceBtn, #closeOverlayBtn {
     padding: 1em;
     font-family: 'Poppins';
     font-size: 1.1em;
     border-radius: 0.5em;
     border: none;
-    background: rgb(133,41,168);
-    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,175,1) 100%);
+
     color: white;
     min-width: 10em;
     transition: all 200ms;
-    /* margin-bottom: 0.4em; */
     margin-top: 1.5em;
     margin-right: 1em;
-}
-
+} */
+/* 
 #submitResourceBtn:hover, #closeOverlayBtn:hover {
     background: rgb(133,41,168);
     background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
     cursor: pointer;
-}
+} */
 
 .msg {
     color: black;
@@ -300,8 +306,7 @@ label {
     width: 2em;
     height: 2em;
     border-radius: 50%;
-    background: rgb(133,41,168);
-    background: linear-gradient(90deg, rgba(133,41,168,1) 0%, rgba(171,71,0,1) 100%);
+    background-color: rgb(78, 56, 190);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -316,4 +321,33 @@ label {
 
 .resource-card:hover .download-wrapper {
     opacity: 1;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 1em;
+  }
+
+#submitResourceBtn, #closeOverlayBtn {
+    padding: 0.7em;
+    border: 1px solid rgb(100, 71, 245);
+    margin-right: 1em;
+    overflow: hidden;
+    background-color: rgb(100, 71, 245);
+    border-radius: 0.2em;
+    min-width: 10em;
+    max-width: 10em;
+    display: block;
+    font-size: 1.1em;
+    font-family: 'Poppins';
+    text-align: center;
+    text-decoration: none;
+    transition: all 200ms;
+    color: white;
+}
+
+#closeOverlayBtn:hover, #submitResourceBtn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: rgb(78, 56, 190);
 }

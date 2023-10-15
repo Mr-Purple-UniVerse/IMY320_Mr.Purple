@@ -82,17 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     ///MODULE INPUT VALIDATION
     document.querySelector('.addModuleBtn').addEventListener('click', function() {
-        const input = document.querySelector('input');
-        const formatMsg = document.querySelector('.formatMsg');
-    
-        const regex = /^[A-Za-z]{3}\s\d{3}$/;
-    
-        if (regex.test(input.value)) {
-            // formatMsg.textContent = 'Format: Valid';
-            // formatMsg.style.color = 'green';
-            formatMsg.style.color = 'black';
-
-            const moduleCode = input.value.toUpperCase();
+        const moduleSelected = document.querySelector('#modulesSelected');
+        const moduleCode = moduleSelected.value.toUpperCase();
 
             $.ajax({
                 url: '/php/addModule.php',
@@ -101,60 +92,72 @@ document.addEventListener('DOMContentLoaded', function() {
                     moduleCode: moduleCode
                 },
                 success: function(response) {
-                    input.value = '';
                     overlay.click();
                     console.log('res: ', response);
 
-
-                    if (response !== 'User not found') {
-                        const moduleCodes = response.split(',');
-            
-                        const registeredModules = document.getElementById('registeredModules');
-            
-                        registeredModules.innerHTML = '';
-            
-                        // Insert the new modules
-                        moduleCodes.forEach(function(moduleCode) {
-                            const moduleDiv = document.createElement('div');
-                            moduleDiv.className = 'module';
-                            moduleDiv.textContent = moduleCode.trim();
-
-                            const removeModuleDiv = document.createElement('div');
-                            removeModuleDiv.className = 'remove-module';
-                            removeModuleDiv.onclick = function() {
-                                removeModule(moduleCode.trim());
-                            }
-
-                            const xmarkIcon = document.createElement('i');
-                            xmarkIcon.className = 'fa-solid fa-xmark';
-
-                            removeModuleDiv.appendChild(xmarkIcon);
-                            moduleDiv.appendChild(removeModuleDiv);
-                            registeredModules.appendChild(moduleDiv);
-                        });
-
-                        const addBtnDiv = document.createElement('div');
-                        addBtnDiv.className = 'add-btn';
-                        addBtnDiv.innerHTML = '<i class="fa-solid fa-plus"></i>';
-                        registeredModules.appendChild(addBtnDiv);
+                    if (response === 'Module already added') {
+                        $('.failedMessage').addClass('failedMessage-animate');
+    
+                        setTimeout(function() {
+                            $('.failedMessage').removeClass('failedMessage-animate');
+                        }, 2200);
+                    } else {
+                        if (response !== 'User not found') {
+                            const moduleCodes = response.split(',');
+                
+                            const registeredModules = document.getElementById('registeredModules');
+                
+                            registeredModules.innerHTML = '';
+                
+                            // Insert the new modules
+                            moduleCodes.forEach(function(moduleCode) {
+                                const moduleDiv = document.createElement('div');
+                                moduleDiv.className = 'module';
+                                moduleDiv.textContent = moduleCode.trim();
+    
+                                const removeModuleDiv = document.createElement('div');
+                                removeModuleDiv.className = 'remove-module';
+                                removeModuleDiv.onclick = function() {
+                                    removeModule(moduleCode.trim());
+                                }
+    
+                                const xmarkIcon = document.createElement('i');
+                                xmarkIcon.className = 'fa-solid fa-xmark';
+    
+                                removeModuleDiv.appendChild(xmarkIcon);
+                                moduleDiv.appendChild(removeModuleDiv);
+                                registeredModules.appendChild(moduleDiv);
+                            });
+    
+                            const addBtnDiv = document.createElement('div');
+                            addBtnDiv.className = 'add-btn';
+                            addBtnDiv.innerHTML = '<i class="fa-solid fa-plus"></i>';
+                            registeredModules.appendChild(addBtnDiv);
+                        }
+    
+    
+                        $('.moduleMessage').addClass('moduleMessage-animate');
+    
+                        setTimeout(function() {
+                            $('.moduleMessage').removeClass('moduleMessage-animate');
+                        }, 2200);
                     }
 
 
-                    $('.moduleMessage').addClass('moduleMessage-animate');
-
-                    setTimeout(function() {
-                        $('.moduleMessage').removeClass('moduleMessage-animate');
-                    }, 2200);
+                    
                 },
                 error: function(xhr, status, error) {
                     console.error('Error:', error);
                 }
             });
-        } else {
-            formatMsg.style.color = 'red';
-        }
+        
     });
 });
+
+function deactivateOverlay() {
+    const overlay = document.getElementById('add-overlay');
+    overlay.style.display = 'none';
+}
 
 function updateProfile() {
     var aboutMe = $('#aboutme').val();

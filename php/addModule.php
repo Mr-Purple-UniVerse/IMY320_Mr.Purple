@@ -18,6 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['email'])) {
         $row = $result->fetch_assoc();
         $currentModules = $row['modules'];
 
+        $moduleArray = explode(',', $currentModules);
+        if (in_array($moduleCode, $moduleArray)) {
+            echo "Module already added";
+            exit;
+        }
+
         $newModules = $currentModules ? $currentModules . ',' . $moduleCode : $moduleCode;
 
         $updateSql = "UPDATE Users SET modules='$newModules' WHERE email='$email'";

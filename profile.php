@@ -46,6 +46,8 @@
 
     <link rel="stylesheet" href="css/profile.css">
 
+    <link rel="icon" href="./assets/favicon.ico">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
@@ -59,6 +61,22 @@
 </head>
 
 <body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
 
     <?php
         include 'navbar.php';
@@ -121,10 +139,24 @@
 
     <div class="add-overlay" id="add-overlay">
         <div class="overlay-inner-wrapper">
-            <h2>Add a module by typing out its module code.</h2>
-            <input type="text" placeholder="IMY 320">
-            <p class="formatMsg">Format: Add a space between 3 characters and the 3 numbers</p>
-            <button class="addModuleBtn">Add</button>
+            <h2>Add a module from the list below</h2>
+            <select name="moduleSelected" id="modulesSelected">
+                <option value="COS 301">COS 301</option>
+                <option value="COS 314">COS 314</option>
+                <option value="COS 326">COS 326</option>
+                <option value="COS 330">COS 330</option>
+                <option value="COS 332">COS 332</option>
+                <option value="COS 333">COS 333</option>
+                <option value="COS 341">COS 341</option>
+                <option value="COS 344">COS 344</option>
+                <option value="IMY 300">IMY 300</option>
+                <option value="IMY 310">IMY 310</option>
+                <option value="IMY 320">IMY 320</option>
+            </select>
+            <div class="buttons">
+                <button class="addModuleBtn">Add</button>
+                <button id="cancelModuleBtn" onclick="deactivateOverlay()">Cancel</button>
+            </div>
         </div>
     </div>
 
@@ -153,7 +185,12 @@
         Module removed!
     </div>
 
+    <div class="failedMessage">
+        Module already added!
+    </div>
+
 </body>
 </html>
 
 <script src="javascript/profile.js"></script>
+<script src="javascript/index.js"></script>

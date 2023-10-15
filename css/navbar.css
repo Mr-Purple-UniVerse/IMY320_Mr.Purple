@@ -2,13 +2,28 @@
     font-family: 'Poppins-Bold'; /* Choose a name for your font */
     src: url('../fonts/Poppins-Bold.ttf') format('truetype');
   }
+
+
+  .title-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    padding: 0em 2em;
+  }
+
+  img {
+    width: 20%;
+  }
+
   
 #title{
     margin: 0;
     padding: 0;
     font-family: 'Poppins-Bold';
-    font-size: 64px;
-    color: #B238B5;
+    font-size: 2em;
+    color: rgb(100, 71, 245);
+    margin-left: 0em;
     /* padding-left: 10px; */
     text-align: center;
     width: 25vw;
@@ -17,7 +32,8 @@
 
 a {
     text-decoration: none;
-    color: #B238B5;
+    color: rgb(100, 71, 245);
+    cursor: pointer;
 }
 
 p {
@@ -26,19 +42,15 @@ p {
 
 .navbar-container {
     position: fixed;
-    width: 25vw;
-    background: linear-gradient(152deg, rgba(255, 255, 255, 0.91) -7.6%, #FFF 91.99%);
-    -webkit-box-shadow: inset -8px 0px 42px -30px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset -8px 0px 42px -30px rgba(0,0,0,0.75);
-    box-shadow: inset -8px 0px 42px -30px rgba(0,0,0,0.75);
+    width: 20vw;
+    box-shadow: inset -8px 0px 20px -19px rgba(0,0,0,0.75);
     height: 100vh;
+    /* background-color: rgba(254, 252, 236); */
 }
 
 body{
     margin: 0;
     padding: 0;
-    /* width: 350px;
-    height: 1024px; */
     flex-shrink: 0;
 }
 
@@ -46,22 +58,24 @@ body{
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    margin-top: 40px;
+    margin-top: 3em;
+    height: 84%;
+    position: relative;
 }
 
 .nav-item{
     flex-shrink: 0;
     border-radius: 0px 44px 44px 0px;
-    color: #B238B5;
-    padding: 1em;
-    margin: 0.1em;
-    margin-left: 0em;
-    width: 90%;
+    color: rgb(100, 71, 245);
+    padding: 0.8em;
     transition: all 200ms;
+    margin-top: 0.5em;
+    width: 80%;
+
 }
 
 .nav-item:hover {
-    background : linear-gradient(90deg, #B846B2 0%, #8A2AA8 109.67%);
+    background-color: rgb(100, 71, 245);
     cursor: pointer;
 }
 
@@ -70,7 +84,7 @@ body{
 }
 
 .selected{
-    background : linear-gradient(90deg, #B846B2 0%, #8A2AA8 109.67%);
+    background-color: rgb(100, 71, 245);
     
 }
 
@@ -79,29 +93,25 @@ body{
 }
 
 
-
 .nav-item p{
     text-decoration: none;
     margin: 0;
     font-family: 'Poppins-Bold';
-    font-size: 24px;
+    font-size: 1em;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     margin-left: 1em;
-    color: #B238B5;
+    color: rgb(100, 71, 245);
 } 
 
-#logout{
-    color: #B238B5;
-    text-align: center;
-    font-family: 'Poppins-Bold';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
 
+.team {
     position: absolute;
-    bottom: 2em; 
-    margin-left: 60px;
+    bottom: 5em;
+}
+
+.logout {
+    position: absolute;
+    bottom: 1em;
 }

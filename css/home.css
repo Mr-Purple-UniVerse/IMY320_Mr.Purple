@@ -4,7 +4,7 @@
 
 
 #mainHome {
-    width: 74vw;
+    width: 80vw;
     float: right;
 }
 
@@ -70,17 +70,17 @@
 }
 
 .card {
-    background: linear-gradient(to right, #8d2aa8, #a530af);
+    background-color: rgb(100, 71, 245);
     width: 90%;
 
     color: white;
-    padding: 10px;
+    padding: 0.7em;
     margin-top: 1.5em;
     margin-bottom: 0.75em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    border-radius: 1.5em;
+    border-radius: 0.7em;
     transition: transform 0.3s ease;
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 /* .card:hover {
@@ -108,7 +108,7 @@
 }
 
 .current-selected{
-    background-color: #ca3bbb;
+    background-color: rgb(78, 56, 190);
     color: white;
     border: none;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.7);
