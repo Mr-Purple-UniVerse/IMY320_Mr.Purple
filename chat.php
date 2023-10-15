@@ -40,9 +40,16 @@
                 </div>
             </div>
         
-            <div class="message-box">
+            <div class="message-box" id="middle-bottom">
                 <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
-                <button type="submit" class="message-submit">Send</button>
+                <button type="submit" class="message-submit" id="send-icon">
+                    <svg width="15" height="15" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="send">
+                        <path id="Vector" d="M27.5 2.5L13.75 16.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path id="Vector_2" d="M27.5 2.5L18.75 27.5L13.75 16.25L2.5 11.25L27.5 2.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg> 
+                </button>
             </div>
         </div>
         

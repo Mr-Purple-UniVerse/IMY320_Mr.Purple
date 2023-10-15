@@ -164,8 +164,9 @@
 }
 
 #send-icon{
-    width: 3.4375rem;
-    height: 3.4375rem;
+  
+    width: 1.5rem;
+    height: 1.5rem;
     flex-shrink: 0;
     background: linear-gradient(93deg, #8529A8 0.34%, #AB47AF 107.05%);
     border-radius: 50%; 
@@ -617,7 +618,7 @@ Message Box
   color: transparent;
 }
 .message-box .message-submit {
-    display: none;
+    /* display: none; */
   /* position: absolute;
   top: 9px;
   right: 10px;
