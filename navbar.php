@@ -14,7 +14,7 @@
                 <p>Resources</p>
             </a>
             <a href="./chat.php" class ="nav-item" >
-                <p>Study Groups</p>
+                <p>Study Group</p>
             </a>
             <a href="./profile.php" class ="nav-item">
                 <p>Profile</p>

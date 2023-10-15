@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css'>
+
     <script src="https://kit.fontawesome.com/c25dad79f1.js" crossorigin="anonymous"></script>
 
     <title>Chat Page</title>
@@ -14,44 +18,47 @@
 <body>
     <?php include 'navbar.php';?>
     <div id="chat-container">
-        <div id="middle">
-            <div class="middle-top">
-                <svg xmlns="http://www.w3.org/2000/svg" width="82" height="82" viewBox="0 0 82 82" fill="none">
-                    <path d="M0 15C0 6.71573 6.71573 0 15 0H67C75.2843 0 82 6.71573 82 15V67C82 75.2843 75.2843 82 67 82H15C6.71573 82 0 75.2843 0 67V15Z" fill="url(#paint0_linear_35_441)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear_35_441" x1="-21.5" y1="-19" x2="132.757" y2="-0.0122639" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#30F0FC"/>
-                        <stop offset="1" stop-color="#2C00AB"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <p id="study-name">Code Fusion</p>
-                <p id="module-name" >COS 301</p>
+        <div class="chat">
+            <div class="chat-title">
+                <h1 id="study-name">Study Group name</h1>
+                <h2 id="module-name">Degree Programme</h2>
+                <figure class="avatar">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>
             </div>
-            <div id="message-hist">
-           
+            <div class="messages">
+                <div class="messages-content" id="message-hist">
+                    <div class="message new">
+                        <figure class="avatar">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg">
+                        </figure>Hi there, I'm Fabio and you? <div class="timestamp">13:40</div>
+                    </div>
+                    <div class="message message-personal new">
+                        <figure class="avatar-right">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg">
+                        </figure>Hi there, I'm Tumi! <div class="timestamp">13:45</div>
+                    </div>  
+                </div>
             </div>
         
-            <form id="middle-bottom">
-                <input type="text" id="message-bar">
-                
-                <button type="submit" name="new-message" id="send-icon">
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="message-box" id="middle-bottom">
+                <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
+                <button type="submit" class="message-submit" id="send-icon">
+                    <svg width="15" height="15" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="send">
                         <path id="Vector" d="M27.5 2.5L13.75 16.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path id="Vector_2" d="M27.5 2.5L18.75 27.5L13.75 16.25L2.5 11.25L27.5 2.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </g>
-                    </svg>  
+                    </svg> 
                 </button>
-            </form>
+            </div>
         </div>
         
 
-        <div>
+        <!-- <div>
             <div id="right-sidebar">
 
             </div>
-        </div>
+        </div> -->
         
     </div>
     <div class="overlay" id="overlay" >
@@ -77,8 +84,9 @@
         </div>
     </div>
 
-   
-    
+   <!-- partial -->
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
     <script src="./javascript/chat.js"></script>
 </body>
 </html>
