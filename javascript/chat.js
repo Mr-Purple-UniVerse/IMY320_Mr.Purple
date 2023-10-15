@@ -1,9 +1,31 @@
 // show_messages_of(1);
-populateStudyGroups().then(() => {
-    document.getElementById("right-sidebar").querySelector(".studygroup").click();
-});
+// populateStudyGroups().then(() => {
+//     document.getElementById("right-sidebar").querySelector(".studygroup").click();
+// });
 
-
+function convertUnixTimestampToTime(unixTimestamp) {
+    // Create a Date object from the Unix timestamp (in seconds)
+    const date = new Date(unixTimestamp * 1000);
+  
+    // Extract hours and minutes from the Date object
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+  
+    // Pad the single-digit hours and minutes with leading zeros if needed
+    const formattedHours = hours < 10 ? '0' + hours : hours;
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+  
+    // Combine the hours and minutes in the desired format (HH:MM)
+    const timeFormat = formattedHours + ':' + formattedMinutes;
+  
+    return timeFormat;
+  }
+  
+  // Example usage:
+  const unixTimestamp = 1697187282;
+  const formattedTime = convertUnixTimestampToTime(unixTimestamp);
+  console.log(formattedTime); // Output: "19:58"
+  
 function show_messages_of(studyGroupId)
 {
     const messageHist = document.getElementById("message-hist");
@@ -20,42 +42,24 @@ function show_messages_of(studyGroupId)
         data.forEach((message) => {
             if(message.userid === localStorage.getItem('userid')){
                myMessageHTML = `
-               <div class="my-message-group">
-               <div class="my-message">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="491" height="139" viewBox="0 0 491 139" fill="none">
-                   <path d="M462.332 103.659V35.2843C462.332 15.7957 444.527 0 422.558 0H39.7745C17.8058 0 0 15.7957 0 35.2843V103.622C0 123.111 17.8058 138.907 39.7745 138.907H422.517C431.337 138.907 439.416 136.347 446.01 132.033C466.413 140.333 490.071 138.907 490.071 138.907C472.224 138.907 462.332 124.683 462.332 103.622V103.659Z" fill="url(#paint0_linear_35_449)"/>
-                   <defs>
-                       <linearGradient id="paint0_linear_35_449" x1="0" y1="69.5082" x2="490.072" y2="69.5082" gradientUnits="userSpaceOnUse">
-                       <stop stop-color="#8529A8"/>
-                       <stop offset="1" stop-color="#AB47AF"/>
-                       </linearGradient>
-                   </defs>
-                   </svg>
-                   <div class="my-message-overlay" >
-                       <p>${message.message}</p>
-                   </div>
-               </div>
-               <div class="user-img">
-                   <img src="${message.profilePhoto}" alt="">
-               </div>
-           </div>`
-                messageHist.innerHTML += myMessageHTML;
+                    <div class="message message-personal new">
+                        <figure class="avatar-right">
+                        <img src="${message.profilePhoto}">
+                        </figure>${message.message}<div class="timestamp">${convertUnixTimestampToTime(message.timestamp)}</div>
+                    </div>  
+                `
+                $(myMessageHTML).appendTo($('.mCSB_container')).addClass('new');
             }
             else{
-                otherMessageHTML = `<div class="other-message-group">
-                    <div class="user-img">
-                        <img src="${message.profilePhoto}" alt="">
+                otherMessageHTML = `
+                    <div class="message new">
+                        <figure class="avatar">
+                        <img src="${message.profilePhoto}">
+                        </figure>${message.message}<div class="timestamp">${convertUnixTimestampToTime(message.timestamp)}</div>
                     </div>
-                    <div class="message">                 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="551" height="132" viewBox="0 0 551 132" fill="none">
-                        <path d="M29.8661 126.032C34.1906 129.195 39.5151 131.114 45.2721 131.114H524.292C538.698 131.114 550.375 119.437 550.375 105.031V27.0822C550.375 12.6762 538.698 1 524.292 1H45.2721C30.8661 1 19.19 12.6762 19.19 27.0822V105.004C19.19 120.6 12.7032 131.087 1 131.087C1 131.087 16.5142 132.141 29.8931 126.005L29.8661 126.032Z" stroke="#8529A8" stroke-miterlimit="10"/>
-                        </svg>
-                        <div class="message-overlay">
-                            <p>${message.message}</p>
-                        </div>
-                    </div>   
-                </div>`
-                messageHist.innerHTML += otherMessageHTML;
+                `
+                $(otherMessageHTML).appendTo($('.mCSB_container')).addClass('new');
+                
             }
         });
         
@@ -152,11 +156,10 @@ async function populateStudyGroups(){
     
             
         }).then(() => {
-            // Get the right sidebar element.
-            const rightSidebar = document.getElementById("right-sidebar");
+      
             
             // Get all the study group elements in the right sidebar.
-            const studyGroupElements = rightSidebar.querySelectorAll(".studygroup");
+            const studyGroupElements = sideBar.querySelectorAll(".studygroup");
 
             // Loop through the study group elements and add an event listener to each one.
             for (const studyGroupElement of studyGroupElements) {
@@ -189,71 +192,9 @@ async function populateStudyGroups(){
     
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const messageBar = document.getElementById("message-bar");
-    const form = document.getElementById("middle-bottom");
-    const submitButton = document.getElementById("send-icon");
-  
-    
-    form.addEventListener("submit", function(event) {
-        const messageToSend = messageBar.value;
-        const messageHist = document.getElementById("message-hist");
-        myMessageHTML = 
-        `<div class="my-message-group">
-               <div class="my-message">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="491" height="139" viewBox="0 0 491 139" fill="none">
-                   <path d="M462.332 103.659V35.2843C462.332 15.7957 444.527 0 422.558 0H39.7745C17.8058 0 0 15.7957 0 35.2843V103.622C0 123.111 17.8058 138.907 39.7745 138.907H422.517C431.337 138.907 439.416 136.347 446.01 132.033C466.413 140.333 490.071 138.907 490.071 138.907C472.224 138.907 462.332 124.683 462.332 103.622V103.659Z" fill="url(#paint0_linear_35_449)"/>
-                   <defs>
-                       <linearGradient id="paint0_linear_35_449" x1="0" y1="69.5082" x2="490.072" y2="69.5082" gradientUnits="userSpaceOnUse">
-                       <stop stop-color="#8529A8"/>
-                       <stop offset="1" stop-color="#AB47AF"/>
-                       </linearGradient>
-                   </defs>
-                   </svg>
-                   <div class="my-message-overlay" >
-                       <p>${messageToSend}</p>
-                   </div>
-               </div>
-               <div class="user-img">
-                   <img src="${localStorage.getItem('profile-photo')}" alt="">
-               </div>
-           </div>`
-        messageHist.innerHTML += myMessageHTML;
-
-
-
-        event.preventDefault();
-        const studyGroup = document.getElementById('study-name').textContent
-        const formData = new FormData();
-        formData.append("message", messageToSend);
-        formData.append("timestamp", Math.floor(Date.now() / 1000));
-        formData.append("studygroup", studyGroup);
-        formData.append("userid", localStorage.getItem('userid'));
-
-        console.log(messageToSend);
-    //   Make an AJAX POST request
-        fetch("../php/insertChatMessage.php", {
-            method: "POST",
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                console.log("Data inserted successfully!");
-                form.reset(); // Reset the form
-            } else {
-                console.log("Data insertion failed!");
-                console.log(data.sql)
-            }
-        })
-        .catch(error => {
-            console.log("Error:", error);
-        });
-    });
-  });
-
 // Function to open the popup
 function openPopup() {
+    console.log("open");
     document.getElementById("overlay").style.display = "block";
 }
 
@@ -324,3 +265,81 @@ function submitInput() {
     // Close the popup
     closePopup();
 }
+
+
+var $messages = $('.messages-content'),
+    d, h, m,
+    i = 0;
+
+$(window).load(function() {
+  $messages.mCustomScrollbar();
+
+});
+
+function updateScrollbar() {
+  $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
+    scrollInertia: 10,
+    timeout: 0
+  });
+}
+
+function setDate(){
+  d = new Date()
+  if (m != d.getMinutes()) {
+    m = d.getMinutes();
+    $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+  }
+}
+
+function insertMessage() {
+  msg = $('.message-input').val();
+  if ($.trim(msg) == '') {
+    return false;
+  }
+  $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+  setDate();
+  $('.message-input').val(null);
+  updateScrollbar();
+}
+
+function send(){
+  insertMessage();
+  msg = $('.message-input').val();
+  const studyGroup = document.getElementById('study-name').textContent
+  const formData = new FormData();
+  formData.append("message", msg);
+  formData.append("timestamp", Math.floor(Date.now() / 1000));
+  formData.append("studygroup", studyGroup);
+  formData.append("userid", localStorage.getItem('userid'));
+
+  console.log(msg);
+//   Make an AJAX POST request
+  fetch("../php/insertChatMessage.php", {
+      method: "POST",
+      body: formData,
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success) {
+          console.log("Data inserted successfully!");
+      } else {
+          console.log("Data insertion failed!");
+          console.log(data.sql)
+      }
+  })
+  .catch(error => {
+      console.log("Error:", error);
+  });
+}
+
+$('.message-submit').click(function() {
+  send();
+});
+
+$(window).on('keydown', function(e) {
+  if (e.which == 13) {
+    send();
+    return false;
+  }
+})
+
