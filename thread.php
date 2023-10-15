@@ -15,14 +15,18 @@
     <link rel="stylesheet" href="CSS/thread.css">
 </head>
 <body>
-    <div id="thread-content">
-        <!-- The thread content will be dynamically loaded here -->
+        <?php
+            include 'navbar.php';
+        ?>
+    <div id="mainThread">
+        <div id="thread-content">
+            <!-- The thread content will be dynamically loaded here -->
+        </div>
+
+        <!-- <button class="back-button" onclick="loadHomePage()">
+                    <img src="assets/back.png" alt="Plus" style="width:50px;">
+        </button> -->
     </div>
-
-    <button class="back-button" onclick="loadHomePage()">
-                <img src="assets/back.png" alt="Plus" style="width:50px;">
-    </button>
-
     <script src="javascript/thread.js"></script>
 </body>
 </html>

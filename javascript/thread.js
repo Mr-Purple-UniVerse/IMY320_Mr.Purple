@@ -43,7 +43,9 @@ function loadThreadContent() {
             description: thread.description,
             upvotes: thread.upvotes,
             downvotes: thread.downvotes,
-            totalComments: thread.totalComments
+            totalComments: thread.totalComments,
+            // upvotedUsers: thread.upvotedUsers,
+            // downvotedUsers: thread.downvotedUsers
         });
 
         data.comments.reverse();
@@ -59,8 +61,8 @@ function loadThreadContent() {
             });
         });
 
-        const upvotedUsers = JSON.parse(thread.upvotedUsers);
-        const downvotedUsers = JSON.parse(thread.downvotedUsers);
+        const upvotedUsers = thread.upvotedUsers.split(','); // Convert comma-separated string to an array
+        const downvotedUsers = thread.downvotedUsers.split(','); // Convert comma-separated string to an array
 
         const questionContent = document.createElement('div');
         questionContent.classList.add('question-content');
@@ -96,6 +98,7 @@ function loadThreadContent() {
                 <label for="comment-box">Add Comment</label> <br>
                 <textarea id="description" name="comment-box" rows="4"></textarea><br/>
                 <button onClick="addComment()" class='comment-button'>Add</button>
+                <button onclick="loadHomePage()" class="back-button">Back</button>
             </div>
         `;
 
@@ -126,6 +129,7 @@ function loadThreadContent() {
         });
 
         threadContentContainer.appendChild(commentsSection);
+        setCommentSectionMargin();
     })
     .catch((error) => {
         console.error('Error fetching data:', error);
@@ -134,6 +138,15 @@ function loadThreadContent() {
 
 function getValidProfilePicUrl(profilePicUrl) {
     return  profilePicUrl == '' ? 'assets/ProfilePic.png' : profilePicUrl;
+}
+
+function setCommentSectionMargin() {
+    const questionContent = document.querySelector('.question-content');
+    const margin = document.querySelector('.margin');
+
+    console.log(margin.style.height);
+    var questionContentHeight = questionContent.offsetHeight +40;
+    margin.style.height = questionContentHeight + 'px';
 }
 
 
@@ -263,7 +276,9 @@ function addCommentToSection(comment) {
 
     commentElement.innerHTML = `
         <div class="profile">
-            <img src="${validProfilePicUrl}" alt="profile-pic" class="profile-pic">
+            <div class="profile-image">
+                <img src="${getValidProfilePicUrl(comment.profilePic)}" alt="profile-pic" class="profile-pic">
+            </div>
             <div class="name">${comment.name}</div>
         </div>
         <div class="comment-description">${comment.description}</div>

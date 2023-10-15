@@ -24,48 +24,39 @@ if (isset($requestData["questionId"]) && isset($requestData["voteType"])) {
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
 
-        if ($row['upvotedUsers'] !== null) {
-            $upvotedUsers = json_decode($row['upvotedUsers']);
-        } else {
-            $upvotedUsers = [];
-        }
-        
-        if ($row['downvotedUsers'] !== null) {
-            $downvotedUsers = json_decode($row['downvotedUsers']);
-        } else {
-            $downvotedUsers = [];
-        }
+        // Retrieve and split the comma-separated strings
+        $upvotedUsers = explode(",", $row['upvotedUsers']);
+        $downvotedUsers = explode(",", $row['downvotedUsers']);
 
         $upvotes = (int)$row['upvotes'];
         $downvotes = (int)$row['downvotes'];
 
         // Remove the user from the opposite vote list if necessary
         if ($voteType === 'upvote') {
-            if ($downvotedUsers && in_array($currentUser, $downvotedUsers)) {
+            if (in_array($currentUser, $downvotedUsers)) {
                 $downvotedUsers = array_diff($downvotedUsers, [$currentUser]);
                 $downvotes--;
             }
-            
+
             if (!in_array($currentUser, $upvotedUsers)) {
                 $upvotedUsers[] = $currentUser;
                 $voteAdded = true;
                 $upvotes++;
             }
         } elseif ($voteType === 'downvote') {
-            if ($upvotedUsers && in_array($currentUser, $upvotedUsers)) {
+            if (in_array($currentUser, $upvotedUsers)) {
                 $upvotedUsers = array_diff($upvotedUsers, [$currentUser]);
                 $upvotes--;
             }
-            
+
             if (!in_array($currentUser, $downvotedUsers)) {
                 $downvotedUsers[] = $currentUser;
                 $voteAdded = true;
                 $downvotes++;
             }
-        }
-        else if($voteType === 'removeVote'){
-             // Check if the user is in either upvotedUsers or downvotedUsers and remove them
-             if (in_array($currentUser, $upvotedUsers)) {
+        } elseif ($voteType === 'removeVote') {
+            // Check if the user is in either upvotedUsers or downvotedUsers and remove them
+            if (in_array($currentUser, $upvotedUsers)) {
                 $upvotedUsers = array_diff($upvotedUsers, [$currentUser]);
                 $upvotes--;
             }
@@ -75,15 +66,15 @@ if (isset($requestData["questionId"]) && isset($requestData["voteType"])) {
             }
         }
 
+        // Convert the arrays back to comma-separated strings
+        $upvotedUsersString = implode(",", $upvotedUsers);
+        $downvotedUsersString = implode(",", $downvotedUsers);
+
         $updateQuery = "UPDATE Questions SET upvotedUsers = ?, downvotedUsers = ?, upvotes = ?, downvotes = ? WHERE id = ?";
         $updateStmt = $mysqli->prepare($updateQuery);
-        
-        // Assign JSON-encoded values to variables
-        $upvotedUsersJson = json_encode($upvotedUsers);
-        $downvotedUsersJson = json_encode($downvotedUsers);
-        
+
         // Bind the variables to the prepared statement
-        $updateStmt->bind_param("ssiis", $upvotedUsersJson, $downvotedUsersJson, $upvotes, $downvotes, $questionId);
+        $updateStmt->bind_param("ssiis", $upvotedUsersString, $downvotedUsersString, $upvotes, $downvotes, $questionId);
         $updateStmt->execute();
 
         // Return the updated vote counts
