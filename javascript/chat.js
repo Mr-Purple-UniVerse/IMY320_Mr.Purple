@@ -1,4 +1,4 @@
-// show_messages_of(1);
+show_messages_of(1);
 // populateStudyGroups().then(() => {
 //     document.getElementById("right-sidebar").querySelector(".studygroup").click();
 // });
@@ -32,6 +32,8 @@ function show_messages_of(studyGroupId)
     messageHist.innerHTML = "";
     const formData = new FormData();
     formData.append("group", studyGroupId);
+    var mySwitch = false;
+    var otherSwitch = false;
     
     fetch("../php/getChat.php", {
         method: "POST",
@@ -41,25 +43,46 @@ function show_messages_of(studyGroupId)
     .then(data => {
         data.forEach((message) => {
             if(message.userid === localStorage.getItem('userid')){
-               myMessageHTML = `
+                otherSwitch = false;
+                myMessageHTML = "";
+                if(mySwitch){
+                    myMessageHTML = `
+                    <div class="message message-personal new">${message.message}<div class="timestamp">${convertUnixTimestampToTime(message.timestamp)}</div>  
+                `
+                }
+                else{
+                    myMessageHTML = `
                     <div class="message message-personal new">
                         <figure class="avatar-right">
                         <img src="${message.profilePhoto}">
                         </figure>${message.message}<div class="timestamp">${convertUnixTimestampToTime(message.timestamp)}</div>
                     </div>  
-                `
+                    `
+                    mySwitch = true;
+                }
+               
                 $(myMessageHTML).appendTo($('.mCSB_container')).addClass('new');
             }
             else{
-                otherMessageHTML = `
+                mySwitch = false;
+                otherMessageHTML = "";
+                if(otherSwitch){
+                    otherMessageHTML = `
+                    <div class="message new">${message.message}<div class="timestamp">${convertUnixTimestampToTime(message.timestamp)}</div> 
+                `
+                }
+                else{
+                    otherMessageHTML = `
                     <div class="message new">
                         <figure class="avatar">
                         <img src="${message.profilePhoto}">
                         </figure>${message.message}<div class="timestamp">${convertUnixTimestampToTime(message.timestamp)}</div>
                     </div>
                 `
-                $(otherMessageHTML).appendTo($('.mCSB_container')).addClass('new');
-                
+                    otherSwitch = true;
+                }
+              
+                $(otherMessageHTML).appendTo($('.mCSB_container')).addClass('new');    
             }
         });
         
@@ -305,8 +328,10 @@ function insertMessage() {
 }
 
 function send(){
+    msg = $('.message-input').val();
+    console.log(msg);
   insertMessage();
-  msg = $('.message-input').val();
+  
   const studyGroup = document.getElementById('study-name').textContent
   const formData = new FormData();
   formData.append("message", msg);
@@ -314,7 +339,7 @@ function send(){
   formData.append("studygroup", studyGroup);
   formData.append("userid", localStorage.getItem('userid'));
 
-  console.log(msg);
+  
 //   Make an AJAX POST request
   fetch("../php/insertChatMessage.php", {
       method: "POST",

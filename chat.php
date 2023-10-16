@@ -20,8 +20,8 @@
     <div id="chat-container">
         <div class="chat">
             <div class="chat-title">
-                <h1 id="study-name">Study Group name</h1>
-                <h2 id="module-name">Degree Programme</h2>
+                <h1 id="study-name">Code Fusion</h1>
+                <h2 id="module-name">Computer Science</h2>
                 <figure class="avatar">
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>
             </div>
