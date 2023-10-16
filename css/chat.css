@@ -508,7 +508,7 @@ Messages
 
 .messages .message .avatar-right img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 .messages .message.message-personal {
   float: right;
