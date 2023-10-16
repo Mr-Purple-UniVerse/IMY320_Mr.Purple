@@ -125,10 +125,6 @@ function filterCards(module) {
                     <button class="action-button comment-button" onclick="redirectToThread(${data.id})">
                         <img src="assets/comment.png" alt="Comment" style="width:27px;">
                         <span class="counter">${data.totalComments}</span>
-                    </button>
-                    <button class="action-button share-button">
-                        <img src="assets/share.png" alt="Share" style="width:27px;">
-                    </button>
                 </div>
             `;
     

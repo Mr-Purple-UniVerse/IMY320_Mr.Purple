@@ -26,14 +26,14 @@ html {
 .question-content {
     position: fixed;
     color: white;
-    background: linear-gradient(to right, #8d2aa8, #a530af);
-    padding: 10px;
+    background-color: rgb(100, 71, 245);
+    padding: 5px;
     transition: transform 0.3s ease;
     z-index: 99;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
-    margin-top: 20px;
+    margin-top: 10px;
     padding-left: 80px;
     width:100%;
 }
@@ -43,12 +43,12 @@ html {
 }
 
 .comment-box{
-    background: linear-gradient(to right, #8d2aa8, #a530af);   
+    background-color: rgb(100, 71, 245);   
     width: 100%;
     position: fixed;
-    padding: 20px;
+    padding: 5px;
     padding-left: 80px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     bottom: 0;
     z-index: 98;
     border-top-left-radius: 80px;
@@ -88,10 +88,9 @@ html {
 }
 
 textarea {
-    width: 60%;
-    height: 2.5vh;
-    padding: 1em;
-    font-size: 0.7em;
+    width: 60vw;
+    height: 5vh;
+    font-size: 0.55em;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 0.5em;
     outline: none;
@@ -100,7 +99,7 @@ textarea {
     color: white;
     resize: none;
     scrollbar-width: thin; 
-    scrollbar-color: #ca3bbb rgba(255, 255, 255, 0.3); 
+    scrollbar-color: #6447F5 rgba(255, 255, 255, 0.3); 
 }
 
 textarea::-webkit-scrollbar {
@@ -108,12 +107,12 @@ textarea::-webkit-scrollbar {
 }
 
 textarea::-webkit-scrollbar-thumb {
-    background-color: #ca3bbb;
+    background-color: #6447F5;
     border-radius: 10px;
 }
 
 textarea::-webkit-scrollbar-thumb:hover {
-    background-color: #a530af;
+    background-color: #6447F5;
 }
 
 textarea::-webkit-scrollbar-track {
@@ -123,11 +122,11 @@ textarea::-webkit-scrollbar-track {
 label {
     color: rgba(255,255,255,0.6);
     font-family: 'Poppins';
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 #mainThread {
-    width: 80vw;
+    width: 75vw;
     float: right;
 }
 
@@ -135,22 +134,20 @@ label {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
     padding-right: 30px;
     max-width: 65vw;
 }
 
 .question-content .question-title {
     font-family: 'Poppins';
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
 .question-content .question-description {
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     max-width: 65vw;
 }
 
@@ -172,6 +169,12 @@ label {
 
 .vote-button{
     cursor: pointer;
+   
+}
+
+.vote-button img{
+    width:1.3em;
+    height:1.3em;
 }
 
 .question-content .actions button {
@@ -179,7 +182,7 @@ label {
     border: none;
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 5px;
     font-size: 0.8em;
     color: #888;
 }
@@ -193,11 +196,15 @@ label {
 }
 
 .comments-section .comment {
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-bottom: 5px;
+    padding: 5px;
     transition: transform 0.3s ease;
-    background: linear-gradient(to left, #fda8de, #d8a7dd);  
-    border-radius: 30px;
+    /* background: linear-gradient(to left, #fda8de, #d8a7dd);   */
+    color:  rgb(100, 71, 245);
+    border-color:  rgb(100, 71, 245);
+    border-style: solid;
+    border-width: 1.5pt;
+    border-top-left-radius: 20px;
 }
 
 .comments-section .comment:hover {
@@ -210,10 +217,14 @@ label {
     margin-bottom: 6px;
 }
 
+.comments-section .comment .profile .name{
+    color:  rgb(100, 71, 245);
+    font-size: 0.7em;
+}
 
 .comments-section .comment .comment-description {
-    font-size: 0.9em;
-    color: white;
+    font-size: 0.6em;
+    color:  rgb(100, 71, 245);
     margin-bottom: 10px;
 }
 
@@ -235,14 +246,14 @@ label {
 
 
 .profile-image{
-    width:3em;
-    height:3em;
+    width:2em;
+    height:2em;
     border-radius: 50%;
     display: flex;
     overflow: hidden;
     justify-content: center;
     align-items: center;
-    margin-right: 1em;
+    margin-right: 0.7em;
 }
 
 .profile-image img{

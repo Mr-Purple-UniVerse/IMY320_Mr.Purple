@@ -145,7 +145,7 @@ function setCommentSectionMargin() {
     const margin = document.querySelector('.margin');
 
     console.log(margin.style.height);
-    var questionContentHeight = questionContent.offsetHeight +40;
+    var questionContentHeight = questionContent.offsetHeight +10;
     margin.style.height = questionContentHeight + 'px';
 }
 

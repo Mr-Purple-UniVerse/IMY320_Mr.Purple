@@ -146,6 +146,34 @@ My time spent at university has taught me to work both effectively independent a
         </div>
       </div>
 
+      <div class="divider"></div>
+
+      <div class="person-card">
+        <div class="person-header">
+            <div class="img-holder">
+                <img src="./assets/dian.jpeg" alt="person img">
+            </div>
+            <h1>Dian Lahouter</h1>
+        </div>
+
+        <p>👋 Hello my name is Dian, I am final year student with a love for coding and solving problems. I cherish the opportunities to learn and grow my skillset, and I am someone that never wants to give up. I'll always find a way to do my task. I have good communication skills and always feel at home working within a team structure.</p> <br>
+        <p>💡 I have a skillset that includes the like of Java, C++, php, javascript, css and more</p> <br>
+        <p>🌟 As hobbies, i enjoy my time reading, obsessing over movies and letting my favourite sports teams decide my emotional state.</p> <br>
+        <p>🌐 For more contact me by email or my LinkedIn</p>
+
+        <div class="icons">
+            <div class="single-icon">
+                <i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/ashir-butt-074b6423a/" target="_blank">https://www.linkedin.com/in/dian-lahouter-2a238423a/</a>
+            </div>
+
+            <div class="single-icon">
+                <i class="fa-solid fa-envelope"></i> <a href="mailto:lahouterd@gmail.com">lahouterd@gmail.com</a>
+            </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
 
     </div>
     <script src="/javascript/index.js"></script>
