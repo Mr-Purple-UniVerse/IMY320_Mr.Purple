@@ -184,14 +184,21 @@ body, html {
 
 .plus-button{
     position: fixed; 
-    height: 2em;
-    font-size: 2em;
+    width: 5em;
+    height: 5em;
+    bottom: 1%;
+    right: 1%;
     border-radius: 50%;
+    background-color: #6447F5;
+    color: white;
+    cursor: pointer;
+    transition: all 400ms;
+    margin-top: 1em;
 }
 
 .plus-button:hover {
-    background: rgb(133,41,168);
     background-color: rgb(78, 56, 190);
+    cursor: pointer;
 }
 
 #overlay{
