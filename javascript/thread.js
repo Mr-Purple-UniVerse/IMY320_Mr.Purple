@@ -95,8 +95,7 @@ function loadThreadContent() {
         commentBox.classList.add('comment-box');
         commentBox.innerHTML = `
             <div class="comment-wrapper">
-                <label for="comment-box">Add Comment</label> <br>
-                <textarea id="description" name="comment-box" rows="4"></textarea><br/>
+                <textarea id="description" name="comment-box" rows="4" placeholder="Type your message here..."></textarea><br/>
                 <button onClick="addComment()" class='comment-button'>Add</button>
                 <button onclick="loadHomePage()" class="back-button">Back</button>
             </div>

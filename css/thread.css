@@ -31,28 +31,24 @@ html {
     transition: transform 0.3s ease;
     z-index: 99;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-    margin-top: 10px;
+
     padding-left: 80px;
     width:100%;
 }
 
 .comment-wrapper{
-    width: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
 }
 
 .comment-box{
-    background-color: rgb(100, 71, 245);   
+    /* background-color: rgb(100, 71, 245);    */
     width: 100%;
     position: fixed;
-    padding: 5px;
-    padding-left: 80px;
     margin-bottom: 5px;
     bottom: 0;
     z-index: 98;
-    border-top-left-radius: 80px;
-    border-bottom-left-radius: 80px;
 }
 
 .back-button{
@@ -88,8 +84,8 @@ html {
 }
 
 textarea {
-    width: 60vw;
-    height: 5vh;
+    width: 70%;
+    height: 3vh;
     font-size: 0.55em;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 0.5em;
@@ -100,6 +96,10 @@ textarea {
     resize: none;
     scrollbar-width: thin; 
     scrollbar-color: #6447F5 rgba(255, 255, 255, 0.3); 
+    border: 2px solid #6447F5;
+    color: #6447F5;
+    padding: 1em;
+    font-size: 1em;
 }
 
 textarea::-webkit-scrollbar {
@@ -126,7 +126,7 @@ label {
 }
 
 #mainThread {
-    width: 75vw;
+    width: 80vw;
     float: right;
 }
 
